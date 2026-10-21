@@ -682,6 +682,169 @@ export const papers = [
     "links": []
   },
   {
+    "id": "ddposenet",
+    "title": {
+      "zh": "Learning Dual-task Descriptors using Unidirectional Feature Fusion for RGB based Category-level Object Pose Estimation",
+      "en": "Learning Dual-task Descriptors using Unidirectional Feature Fusion for RGB based Category-level Object Pose Estimation"
+    },
+    "authors": "Wendong Guo, Junyi Wang, Yanwei Zheng*, Xiao Zhang, Xingyu Zhang, Dongxiao Yu",
+    "year": "",
+    "venue": {
+      "zh": "Neural Networks",
+      "en": "Neural Networks"
+    },
+    "venueShort": {
+      "zh": "Neural Networks",
+      "en": "Neural Networks"
+    },
+    "image": "assets/papers/ddposenet-motivation.webp",
+    "figureAlt": {
+      "zh": "DDPoseNet 描述子匹配、候选位姿与置信度聚合流程",
+      "en": "DDPoseNet descriptor matching, candidate poses, and confidence aggregation"
+    },
+    "summary": {
+      "zh": "面向单张 RGB 的类别级6D位姿与尺寸估计，以双任务描述子、单向几何融合和候选置信度聚合增强预测；REAL275 NIoU50为51.4，RTX 3090上达24 FPS。",
+      "en": "For RGB-only category-level 6D pose and size estimation, dual-task descriptors, one-way geometric fusion, and confidence-weighted aggregation strengthen predictions; REAL275 NIoU50 is 51.4, with 24 FPS on an RTX 3090."
+    },
+    "sections": [
+      {
+        "id": "task",
+        "title": {
+          "zh": "任务说明",
+          "en": "Task"
+        },
+        "paragraphs": [
+          {
+            "zh": "类别级位姿估计需要从已知类别中识别未见过的物体实例，并预测其相对相机的三维位置、旋转和尺寸。只输入 RGB 图像时，模型还需克服纹理与形状差异以及尺度歧义。",
+            "en": "Category-level pose estimation predicts camera-relative 3D translation, rotation, and size for unseen instances from known categories. RGB-only input makes the task difficult because of texture and shape variation and scale ambiguity."
+          },
+          {
+            "zh": "DDPoseNet 将问题转化为图像像素与三维模型点的描述子对应，同时完成目标分割与位姿求解，避免把外部检测器作为必需前置步骤。",
+            "en": "DDPoseNet formulates the task as descriptor correspondences between image pixels and 3D model points. Segmentation and pose estimation are learned together without requiring an external detector as a prerequisite."
+          }
+        ],
+        "points": [],
+        "figures": [],
+        "metrics": []
+      },
+      {
+        "id": "contributions",
+        "title": {
+          "zh": "主要贡献",
+          "en": "Main Contributions"
+        },
+        "paragraphs": [],
+        "points": [
+          {
+            "zh": "学习同时支持像素分割和 2D–3D 对应的双任务描述子，在同一框架内求解位姿与真实尺度。",
+            "en": "Dual-task descriptors support both pixel segmentation and 2D–3D correspondence, enabling pose and metric-scale recovery in one framework."
+          },
+          {
+            "zh": "采用单向特征融合，让三维几何信息增强图像描述子，同时保持模型分支可独立预计算。",
+            "en": "One-way feature fusion enriches image descriptors with 3D geometry while keeping the model branch independently precomputable."
+          },
+          {
+            "zh": "预测不同候选模型的位姿置信度，再加权聚合多个候选，减小模型选择带来的不确定性。",
+            "en": "Predicted confidence scores weight and aggregate poses from different model candidates to reduce model-selection uncertainty."
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/papers/ddposenet-motivation.webp",
+            "caption": {
+              "zh": "整体思路：描述子对应产生初始位姿，候选置信度得到最终估计。",
+              "en": "Descriptors produce initial pose hypotheses, followed by confidence-based final estimation."
+            }
+          }
+        ],
+        "metrics": []
+      },
+      {
+        "id": "method",
+        "title": {
+          "zh": "方法架构",
+          "en": "Method Architecture"
+        },
+        "paragraphs": [
+          {
+            "zh": "图像分支采用 Swin Transformer，点云分支采用 Point Transformer V3，辅以冻结 DINOv2 的几何特征。单向融合模块用几何分支指导图像特征，网络同时学习描述子相似性、距离关系与分割目标。",
+            "en": "A Swin Transformer encodes images and Point Transformer V3 encodes model points, with frozen DINOv2 features providing auxiliary geometric cues. One-way fusion guides the image branch with geometry, while training combines descriptor similarity, distance relations, and segmentation objectives."
+          },
+          {
+            "zh": "推理时先进行像素和模型描述子匹配，建立 2D–3D 对应并通过 PnP 生成候选位姿。对于同类多个实例，根据对应点的位姿一致性区分目标，最后以置信度加权融合候选。",
+            "en": "At inference, pixel and model descriptors establish 2D–3D correspondences and PnP produces pose hypotheses. Pose consistency among correspondences helps distinguish multiple same-category instances, after which confidence-weighted aggregation gives the final pose."
+          }
+        ],
+        "points": [],
+        "figures": [
+          {
+            "src": "assets/papers/ddposenet-method.webp",
+            "caption": {
+              "zh": "DDPoseNet 网络：图像/点云编码器、描述子解码器和单向特征融合。",
+              "en": "DDPoseNet image/point encoders, descriptor decoders, and one-way feature fusion."
+            }
+          }
+        ],
+        "metrics": []
+      },
+      {
+        "id": "results",
+        "title": {
+          "zh": "实验结果",
+          "en": "Experiments and Results"
+        },
+        "paragraphs": [
+          {
+            "zh": "类别级实验在 REAL275 与 CAMERA25 上进行。使用三维模型的 REAL275 结果为 NIoU50 51.4、NIoU75 27.3、IoU50 22.4；不用真值三维模型、以训练样本重建模型的设置仍取得 NIoU50 51.1。",
+            "en": "Category-level evaluation uses REAL275 and CAMERA25. With 3D models on REAL275, NIoU50 is 51.4, NIoU75 27.3, and IoU50 22.4. Replacing ground-truth models with reconstructions from training samples still obtains 51.1 NIoU50."
+          },
+          {
+            "zh": "实例级 YCB-Video 测试达到 ADD(-S) 86.1、ADD-S AUC 93.3 和 ADD(-S) AUC 89.4。单向融合、位姿置信度和双任务描述子均通过消融验证；在 RTX 3090 上，REAL275/CAMERA25 推理速度为 24 FPS。",
+            "en": "On the instance-level YCB-Video benchmark, ADD(-S) is 86.1, ADD-S AUC 93.3, and ADD(-S) AUC 89.4. Ablations evaluate one-way fusion, pose confidence, and dual-task descriptors. Inference on REAL275/CAMERA25 runs at 24 FPS on an RTX 3090."
+          }
+        ],
+        "points": [],
+        "figures": [
+          {
+            "src": "assets/papers/ddposenet-results-category.webp",
+            "caption": {
+              "zh": "论文原表 Table 1：REAL275 与 CAMERA25 类别级位姿和尺寸估计。",
+              "en": "Original Table 1: category-level pose and size estimation on REAL275 and CAMERA25."
+            },
+            "kind": "table"
+          },
+          {
+            "src": "assets/papers/ddposenet-results-instance.webp",
+            "caption": {
+              "zh": "论文原表 Table 2：YCB-Video 实例级位姿估计结果。",
+              "en": "Original Table 2: instance-level pose results on YCB-Video."
+            },
+            "kind": "table",
+            "displayWidth": 740
+          },
+          {
+            "src": "assets/papers/ddposenet-results-qualitative.webp",
+            "caption": {
+              "zh": "REAL275 与 YCB-Video 可视化，绿色为真值框、蓝色为预测框。",
+              "en": "Qualitative REAL275 and YCB-Video results: green boxes are ground truth and blue boxes are predictions."
+            }
+          }
+        ],
+        "metrics": [],
+        "layout": "full"
+      }
+    ],
+    "rankings": [
+      {
+        "label": {
+          "zh": "CCF B",
+          "en": "CCF B"
+        }
+      }
+    ],
+    "links": []
+  },
+  {
     "id": "uwb-following",
     "title": {
       "zh": "A Novel UWB-Based Full-Range and Multi-Angle Following Robot",
@@ -858,168 +1021,5 @@ export const papers = [
         }
       }
     ]
-  },
-  {
-    "id": "ddposenet",
-    "title": {
-      "zh": "Learning Dual-task Descriptors using Unidirectional Feature Fusion for RGB based Category-level Object Pose Estimation",
-      "en": "Learning Dual-task Descriptors using Unidirectional Feature Fusion for RGB based Category-level Object Pose Estimation"
-    },
-    "authors": "Wendong Guo, Junyi Wang, Yanwei Zheng*, Xiao Zhang, Xingyu Zhang, Dongxiao Yu",
-    "year": "",
-    "venue": {
-      "zh": "Neural Networks",
-      "en": "Neural Networks"
-    },
-    "venueShort": {
-      "zh": "Neural Networks",
-      "en": "Neural Networks"
-    },
-    "image": "assets/papers/ddposenet-motivation.webp",
-    "figureAlt": {
-      "zh": "DDPoseNet 描述子匹配、候选位姿与置信度聚合流程",
-      "en": "DDPoseNet descriptor matching, candidate poses, and confidence aggregation"
-    },
-    "summary": {
-      "zh": "面向单张 RGB 的类别级6D位姿与尺寸估计，以双任务描述子、单向几何融合和候选置信度聚合增强预测；REAL275 NIoU50为51.4，RTX 3090上达24 FPS。",
-      "en": "For RGB-only category-level 6D pose and size estimation, dual-task descriptors, one-way geometric fusion, and confidence-weighted aggregation strengthen predictions; REAL275 NIoU50 is 51.4, with 24 FPS on an RTX 3090."
-    },
-    "sections": [
-      {
-        "id": "task",
-        "title": {
-          "zh": "任务说明",
-          "en": "Task"
-        },
-        "paragraphs": [
-          {
-            "zh": "类别级位姿估计需要从已知类别中识别未见过的物体实例，并预测其相对相机的三维位置、旋转和尺寸。只输入 RGB 图像时，模型还需克服纹理与形状差异以及尺度歧义。",
-            "en": "Category-level pose estimation predicts camera-relative 3D translation, rotation, and size for unseen instances from known categories. RGB-only input makes the task difficult because of texture and shape variation and scale ambiguity."
-          },
-          {
-            "zh": "DDPoseNet 将问题转化为图像像素与三维模型点的描述子对应，同时完成目标分割与位姿求解，避免把外部检测器作为必需前置步骤。",
-            "en": "DDPoseNet formulates the task as descriptor correspondences between image pixels and 3D model points. Segmentation and pose estimation are learned together without requiring an external detector as a prerequisite."
-          }
-        ],
-        "points": [],
-        "figures": [],
-        "metrics": []
-      },
-      {
-        "id": "contributions",
-        "title": {
-          "zh": "主要贡献",
-          "en": "Main Contributions"
-        },
-        "paragraphs": [],
-        "points": [
-          {
-            "zh": "学习同时支持像素分割和 2D–3D 对应的双任务描述子，在同一框架内求解位姿与真实尺度。",
-            "en": "Dual-task descriptors support both pixel segmentation and 2D–3D correspondence, enabling pose and metric-scale recovery in one framework."
-          },
-          {
-            "zh": "采用单向特征融合，让三维几何信息增强图像描述子，同时保持模型分支可独立预计算。",
-            "en": "One-way feature fusion enriches image descriptors with 3D geometry while keeping the model branch independently precomputable."
-          },
-          {
-            "zh": "预测不同候选模型的位姿置信度，再加权聚合多个候选，减小模型选择带来的不确定性。",
-            "en": "Predicted confidence scores weight and aggregate poses from different model candidates to reduce model-selection uncertainty."
-          }
-        ],
-        "figures": [
-          {
-            "src": "assets/papers/ddposenet-motivation.webp",
-            "caption": {
-              "zh": "整体思路：描述子对应产生初始位姿，候选置信度得到最终估计。",
-              "en": "Descriptors produce initial pose hypotheses, followed by confidence-based final estimation."
-            }
-          }
-        ],
-        "metrics": []
-      },
-      {
-        "id": "method",
-        "title": {
-          "zh": "方法架构",
-          "en": "Method Architecture"
-        },
-        "paragraphs": [
-          {
-            "zh": "图像分支采用 Swin Transformer，点云分支采用 Point Transformer V3，辅以冻结 DINOv2 的几何特征。单向融合模块用几何分支指导图像特征，网络同时学习描述子相似性、距离关系与分割目标。",
-            "en": "A Swin Transformer encodes images and Point Transformer V3 encodes model points, with frozen DINOv2 features providing auxiliary geometric cues. One-way fusion guides the image branch with geometry, while training combines descriptor similarity, distance relations, and segmentation objectives."
-          },
-          {
-            "zh": "推理时先进行像素和模型描述子匹配，建立 2D–3D 对应并通过 PnP 生成候选位姿。对于同类多个实例，根据对应点的位姿一致性区分目标，最后以置信度加权融合候选。",
-            "en": "At inference, pixel and model descriptors establish 2D–3D correspondences and PnP produces pose hypotheses. Pose consistency among correspondences helps distinguish multiple same-category instances, after which confidence-weighted aggregation gives the final pose."
-          }
-        ],
-        "points": [],
-        "figures": [
-          {
-            "src": "assets/papers/ddposenet-method.webp",
-            "caption": {
-              "zh": "DDPoseNet 网络：图像/点云编码器、描述子解码器和单向特征融合。",
-              "en": "DDPoseNet image/point encoders, descriptor decoders, and one-way feature fusion."
-            }
-          }
-        ],
-        "metrics": []
-      },
-      {
-        "id": "results",
-        "title": {
-          "zh": "实验结果",
-          "en": "Experiments and Results"
-        },
-        "paragraphs": [
-          {
-            "zh": "类别级实验在 REAL275 与 CAMERA25 上进行。使用三维模型的 REAL275 结果为 NIoU50 51.4、NIoU75 27.3、IoU50 22.4；不用真值三维模型、以训练样本重建模型的设置仍取得 NIoU50 51.1。",
-            "en": "Category-level evaluation uses REAL275 and CAMERA25. With 3D models on REAL275, NIoU50 is 51.4, NIoU75 27.3, and IoU50 22.4. Replacing ground-truth models with reconstructions from training samples still obtains 51.1 NIoU50."
-          },
-          {
-            "zh": "实例级 YCB-Video 测试达到 ADD(-S) 86.1、ADD-S AUC 93.3 和 ADD(-S) AUC 89.4。单向融合、位姿置信度和双任务描述子均通过消融验证；在 RTX 3090 上，REAL275/CAMERA25 推理速度为 24 FPS。",
-            "en": "On the instance-level YCB-Video benchmark, ADD(-S) is 86.1, ADD-S AUC 93.3, and ADD(-S) AUC 89.4. Ablations evaluate one-way fusion, pose confidence, and dual-task descriptors. Inference on REAL275/CAMERA25 runs at 24 FPS on an RTX 3090."
-          }
-        ],
-        "points": [],
-        "figures": [
-          {
-            "src": "assets/papers/ddposenet-results-category.webp",
-            "caption": {
-              "zh": "论文原表 Table 1：REAL275 与 CAMERA25 类别级位姿和尺寸估计。",
-              "en": "Original Table 1: category-level pose and size estimation on REAL275 and CAMERA25."
-            },
-            "kind": "table"
-          },
-          {
-            "src": "assets/papers/ddposenet-results-instance.webp",
-            "caption": {
-              "zh": "论文原表 Table 2：YCB-Video 实例级位姿估计结果。",
-              "en": "Original Table 2: instance-level pose results on YCB-Video."
-            },
-            "kind": "table",
-            "displayWidth": 740
-          },
-          {
-            "src": "assets/papers/ddposenet-results-qualitative.webp",
-            "caption": {
-              "zh": "REAL275 与 YCB-Video 可视化，绿色为真值框、蓝色为预测框。",
-              "en": "Qualitative REAL275 and YCB-Video results: green boxes are ground truth and blue boxes are predictions."
-            }
-          }
-        ],
-        "metrics": [],
-        "layout": "full"
-      }
-    ],
-    "rankings": [
-      {
-        "label": {
-          "zh": "CCF B",
-          "en": "CCF B"
-        }
-      }
-    ],
-    "links": []
   }
 ];
