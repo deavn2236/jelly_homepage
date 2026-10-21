@@ -935,8 +935,8 @@ export const projects = [
       "en": "Autonomous plant inspection and equipment interaction with a mobile manipulator"
     },
     "summary": {
-      "zh": "面向厂房自主巡检与设备按钮交互，结合移动导航、视觉按钮识别和机械臂接触反馈；在移动操作机器人上完成系统集成与实机演示。",
-      "en": "For autonomous plant inspection and button interaction, mobile navigation, visual button recognition, and arm contact feedback are integrated and demonstrated on a real mobile manipulator."
+      "zh": "面向室内巡检与按钮交互，融合激光/RGB-D导航、YOLOv5n识别及接触校准；实机按压成功率86.67%，平均位置误差降低24.35%。",
+      "en": "Indoor patrol and button pressing combine LiDAR/RGB-D navigation, YOLOv5n and contact-based pose updates; real-robot tests report 86.67% pressing success and 24.35% lower mean position error."
     },
     "facts": [
       {
@@ -969,16 +969,14 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "厂房巡检不只涉及观察设备状态，还可能需要机器人主动触发按钮等物理交互。项目将巡检移动与设备操作结合，减少对固定位置机械臂的依赖。",
-            "en": "Plant inspection can require physical interaction, such as triggering a button. The project connects inspection mobility with equipment manipulation."
+            "zh": "厂房与机房的巡检任务包含沿路线移动、检查固定设备和按压控制按钮。按钮分布在不同高度，机器人既要到达检查点，也要准确完成末端接触操作；长距离行驶、较大转弯和轮地滑移还会影响后续作业的定位精度。",
+            "en": "Plant and machine-room inspection combines route following, checks at fixed equipment, and physical button pressing. Buttons at different heights require both mobile access and accurate arm contact. Long travel, large turns, and wheel slip can affect the pose estimate needed for later interactions."
           },
           {
-            "zh": "不同设备的按钮高度、朝向和可接近空间并不一致，单纯到达导航点不足以完成巡检操作。系统需要把厂房内的移动定位、按钮视觉定位与接触后的动作判断衔接起来。",
-            "en": "Equipment buttons differ in height, orientation, and accessible space, so reaching a navigation waypoint is insufficient. The system connects plant navigation, visual button localization, and action checks after contact."
+            "zh": "项目采用可调高度移动平台、机械臂和低成本感知器件，利用2D激光雷达与RGB-D相机完成导航，并将已知位姿的按钮作为接触参照，在按压时更新底盘位姿，形成巡检与定位校准相互衔接的闭环。",
+            "en": "A height-adjustable platform, arm, and low-cost sensors support navigation with 2D LiDAR and RGB-D observations. Buttons with configured map poses provide contact references for updating the base pose during inspection, connecting manipulation with navigation recalibration."
           }
-        ],
-        "points": [],
-        "figures": []
+        ]
       },
       {
         "id": "task",
@@ -988,16 +986,32 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "移动机器人到达设备附近，抬升机械臂并扫描环境；检测按钮后计算操作坐标，调整底盘与机械臂位置，依据接触信号执行按压并复位。未检测到按钮时重新调整观察位置。",
-            "en": "The robot approaches equipment, raises its arm, scans for a button, computes operation coordinates, and adjusts the base and arm. Contact feedback guides pressing and return; unsuccessful detection triggers repositioning."
+            "zh": "机器人在预先构建的二维地图上依次访问检查点，识别红、黄、绿三类按钮并按类别执行交互。每次有效接触后，结合按钮的已知地图位姿与机械臂当前坐标变换重校准底盘，再继续下一段巡检。",
+            "en": "The robot visits checkpoints on a prebuilt 2D map, recognizes red, yellow, and green buttons, and interacts according to their categories. At valid contact, the known button pose and current arm transforms recalibrate the base before the next patrol segment."
           },
           {
-            "zh": "操作按“移动接近—升降调整—扫描识别—求解操作位置—接触按压—复位”展开。目标不可见时改变观察位置，接触信号用于判断是否进入有效交互阶段，避免将视觉识别成功等同于按钮操作完成。",
-            "en": "The sequence is approach, lift adjustment, scanning and recognition, operation-pose calculation, contact pressing, and return. Repositioning handles an unseen target; contact feedback indicates entry into the interaction stage rather than treating recognition alone as completion."
+            "zh": "本人负责按钮识别与机械臂点击等核心环节，重点衔接视觉目标检测、三维目标坐标转换、末端接近、触碰检测和按压复位。系统整体还包括导航与位姿重校准模块。",
+            "en": "My work focuses on button recognition and arm pressing: connecting visual detection, 3D target transformation, end-effector approach, contact detection, and press-and-reset execution. The complete system also contains navigation and pose-recalibration modules."
           }
         ],
-        "points": [],
-        "figures": []
+        "flow": [
+          {
+            "zh": "导航接近检查点，调整平台高度与机械臂观察姿态。",
+            "en": "Navigate to the checkpoint and adjust platform height and the arm viewing pose."
+          },
+          {
+            "zh": "在约60°水平范围内扫描，以YOLOv5n识别按钮类别和中心位置。",
+            "en": "Scan approximately 60° horizontally; YOLOv5n identifies button categories and centers."
+          },
+          {
+            "zh": "融合RGB与深度信息得到三维操作目标，控制末端接近并检测接触。",
+            "en": "Use RGB and depth to obtain the 3D target, approach it, and detect contact."
+          },
+          {
+            "zh": "完成按钮按压与退回，利用接触时的坐标变换更新底盘位姿，再进入下一检查点。",
+            "en": "Press and retract; update the base pose from contact-time transforms and continue to the next checkpoint."
+          }
+        ]
       },
       {
         "id": "equipment",
@@ -1007,19 +1021,23 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "系统由移动底盘、升降机构、机械臂和视觉传感器组成。底盘承担厂房内移动，升降与机械臂扩大设备交互范围，相机为按钮定位提供输入。",
-            "en": "The system uses a mobile base, lifting mechanism, arm, and camera. The base provides mobility, the lift and arm extend reach, and vision localizes device buttons."
+            "zh": "移动平台采用四轮驱动和可调高度机构，搭载ViperX 300S六自由度机械臂。升降机构与机械臂协同覆盖不同高度的设备面板；论文实验将按钮的适宜操作高度设为距地面80—120厘米。",
+            "en": "A four-wheel, height-adjustable platform carries a ViperX 300S six-DOF arm. Platform height and arm motion accommodate equipment panels at different levels; the paper uses an operational button-height range of 80–120 cm above the floor."
+          },
+          {
+            "zh": "导航感知使用LSLIDAR N10二维激光雷达和前向RealSense D435i；末端RealSense D405提供近距离RGB与深度观测，自制触碰开关检测按钮表面接触。计算单元为Intel N100小型主机，软件运行于Ubuntu 20.04与ROS Noetic，底层控制由STM32H750和CAN总线衔接。",
+            "en": "Navigation uses an LSLIDAR N10 2D LiDAR and a forward RealSense D435i. An end-effector RealSense D405 supplies close-range RGB and depth, while a custom contact switch detects the button surface. An Intel N100 mini-PC runs Ubuntu 20.04 and ROS Noetic, with an STM32H750 and CAN bus for low-level control."
           }
         ],
-        "points": [],
         "figures": [
           {
-            "src": "assets/projects/patrol-inspection/ppt/summary-image117.webp",
+            "src": "assets/projects/patrol-inspection/paper/robot-prototype.webp",
             "caption": {
-              "zh": "厂房巡检移动操作机器人实机",
-              "en": "Plant-inspection mobile manipulator"
+              "zh": "移动巡检操作机器人样机：可调高度底盘、六自由度机械臂与末端视觉（原文Fig. 1）。",
+              "en": "Prototype with an adjustable-height base, six-DOF arm, and end-effector vision (original Fig. 1)."
             },
-            "role": "main"
+            "role": "main",
+            "displayWidth": 360
           }
         ]
       },
@@ -1031,50 +1049,80 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "本人负责按钮识别和机械臂点击等核心环节，重点将视觉目标转换为受反馈约束的精确操作。",
-            "en": "My work focuses on button recognition and precise arm pressing, converting visual targets into feedback-guided manipulation."
-          }
-        ],
-        "points": [],
-        "figures": [
-          {
-            "src": "assets/projects/patrol-inspection/ppt/summary-image115.webp",
-            "caption": {
-              "zh": "按钮识别、接触反馈与操作复位流程",
-              "en": "Button detection, contact feedback, and return workflow"
-            }
+            "zh": "ROS软件分为巡航、检查操作和位姿重校准三个模块。导航观测用于路线执行与避障，末端视觉用于按钮检测与三维定位，接触时的机械臂状态则为底盘提供一次位姿校准；模块间通过ROS话题和TF坐标变换衔接。",
+            "en": "The ROS architecture separates patrol navigation, inspection, and pose recalibration. Navigation observations support route following and avoidance; end-effector vision detects and localizes buttons; the arm state at contact supplies a base-pose update. ROS topics and TF transforms connect the modules."
           }
         ],
         "techniques": [
           {
             "name": {
-              "zh": "按钮视觉检测与操作点定位",
-              "en": "Visual button detection and target localization"
+              "zh": "RGB-D与2D激光融合",
+              "en": "RGB-D and 2D LiDAR fusion"
             },
             "description": {
-              "zh": "识别设备面板中的目标按钮，结合机器人观测与空间位置关系确定按压点，并将视觉结果转换为机械臂可用的目标坐标。",
-              "en": "Detect the target button on the equipment panel, determine its pressing point from observations and spatial relationships, and transform it into an arm-frame target."
+              "zh": "通过手眼与外参标定统一传感器坐标系，使用depthimage_to_laserscan将深度图转换为扫描数据，并与激光扫描合并。在巡检导航阶段补充单一扫描平面之外的障碍信息，更新局部代价地图。",
+              "en": "Hand–eye and extrinsic calibration align sensor frames. depthimage_to_laserscan converts depth into scan data for merging with LiDAR. During patrol navigation, this adds obstacles outside the LiDAR scan plane to the local costmap."
             }
           },
           {
             "name": {
-              "zh": "机械臂位姿求解与接近控制",
-              "en": "Arm-pose computation and approach control"
+              "zh": "虚拟里程计、Gmapping与AMCL",
+              "en": "Virtual odometry, Gmapping, and AMCL"
             },
             "description": {
-              "zh": "围绕按钮位置与面板方向组织末端接近和按压动作，协调底盘站位、升降机构及机械臂工作空间，避免把图像中心直接当作执行目标。",
-              "en": "Organize approach and pressing around the button position and panel orientation, coordinating the base, lift, and arm workspace when producing executable targets."
+              "zh": "laser_scan_matcher通过相邻扫描匹配生成虚拟里程计。实验先人工控制平台、仅用2D激光建立Gmapping静态地图；巡检时使用融合扫描、AMCL全局定位和虚拟里程计局部运动估计，配合ROS Navigation执行导航。",
+              "en": "laser_scan_matcher estimates virtual odometry from successive scans. In the experiment, manual driving with 2D LiDAR first creates a static Gmapping map. Patrol then uses fused scans, AMCL global localization, virtual local odometry, and the ROS Navigation stack."
             }
           },
           {
             "name": {
-              "zh": "接触位姿反馈与状态管理",
-              "en": "Contact-pose feedback and state management"
+              "zh": "YOLOv5n按钮检测与三维定位",
+              "en": "YOLOv5n detection and 3D button localization"
             },
             "description": {
-              "zh": "以接触信号判断交互阶段，按扫描、定位、接近、按压和复位切换动作；目标不可见或条件不足时调整观察位置后重试。",
-              "en": "Use contact signals to track interaction phases and sequence scanning, localization, approach, pressing, and reset, repositioning and retrying when observation or execution conditions are unmet."
+              "zh": "在CPU计算平台上识别按钮颜色类别与中心像素，结合D405深度和相机—机器人外参，将图像目标转换为机械臂可执行的三维目标坐标。",
+              "en": "The CPU-deployed detector predicts button color categories and center pixels. D405 depth and camera-to-robot extrinsics transform image targets into executable 3D arm coordinates."
             }
+          },
+          {
+            "name": {
+              "zh": "触碰检测与定深按压",
+              "en": "Contact detection and controlled pressing"
+            },
+            "description": {
+              "zh": "末端触碰开关用于确认接触阶段。论文实现对深度估计加入3厘米接近补偿，触发开关后继续前推5毫米完成按钮按压，再退回初始姿态。",
+              "en": "An end-effector switch identifies surface contact. The paper applies a 3 cm approach compensation to the depth estimate; after contact, a further 5 mm motion actuates the button before returning to the reset pose."
+            }
+          },
+          {
+            "name": {
+              "zh": "基于接触与TF的底盘位姿重校准",
+              "en": "Contact- and TF-based base-pose recalibration"
+            },
+            "description": {
+              "zh": "预先记录检查按钮在地图中的位置与朝向。接触时由按钮位姿确定末端地图位姿，再与末端到底盘的TF变换组合，得到并发布新的底盘位姿，使后续导航从校准后的状态继续。",
+              "en": "Each checkpoint stores the button position and orientation in the map. At contact, this reference determines the end-effector map pose. Combining it with the end-effector-to-base TF transform produces an updated base pose for subsequent navigation."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/patrol-inspection/paper/software-architecture.webp",
+            "caption": {
+              "zh": "系统软件架构：巡航、检查操作与位姿重校准三个模块（原文Fig. 3）。",
+              "en": "Software architecture: patrol, inspection, and pose-recalibration modules (original Fig. 3)."
+            },
+            "displayWidth": 800,
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/patrol-inspection/paper/coordinate-frames.webp",
+            "caption": {
+              "zh": "地图、里程计、底盘、机械臂与相机之间的TF坐标关系（原文Fig. 4）。",
+              "en": "TF relationships among map, odometry, base, arm, and cameras (original Fig. 4)."
+            },
+            "displayWidth": 700,
+            "layout": "full"
           }
         ]
       },
@@ -1086,21 +1134,112 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "实机视频展示巡检平台在实验环境中的设备接近与操作过程。流程图给出识别失败重定位、接触检查与操作复位环节。",
-            "en": "Robot footage documents equipment approach and interaction in the experimental setting. The workflow includes repositioning after failed detection, contact checks, and return."
+            "zh": "实机视频展示移动巡检操作平台的设备接近与交互。论文中的识别可视化展示不同颜色按钮的检测结果；巡检路线图和融合对照图分别说明三个检查点的循环访问，以及深度观测对货架等障碍的补充感知。",
+            "en": "The real-robot video shows equipment approach and interaction. The paper’s detection examples show different button colors; its route and fusion examples illustrate cyclic visits to three checkpoints and depth-based detection of obstacles such as shelving."
           }
         ],
-        "points": [],
         "figures": [
           {
             "video": "assets/projects/patrol-inspection/demo.mp4",
             "poster": "assets/projects/patrol-inspection/poster.webp",
             "caption": {
-              "zh": "厂房巡检移动操作平台实机测试",
-              "en": "Real-robot test of the plant-inspection mobile manipulator"
-            }
+              "zh": "移动巡检操作平台：设备接近与机械臂交互实机测试。",
+              "en": "Mobile inspection platform: real-robot approach and arm interaction."
+            },
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/patrol-inspection/paper/button-recognition.webp",
+            "caption": {
+              "zh": "红、黄、绿按钮的视觉识别结果（原文Fig. 9）。",
+              "en": "Visual recognition of red, yellow, and green buttons (original Fig. 9)."
+            },
+            "displayWidth": 640,
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/patrol-inspection/paper/patrol-route.webp",
+            "caption": {
+              "zh": "二维地图中的起点、三个检查点与循环巡检路线（原文Fig. 10）。",
+              "en": "Start point, three checkpoints, and the cyclic patrol route (original Fig. 10)."
+            },
+            "row": "navigation-validation",
+            "rowWidth": 1000
+          },
+          {
+            "src": "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.webp",
+            "caption": {
+              "zh": "融合关闭/开启的障碍观测对比：补充单平面激光未检出的货架结构（原文Fig. 11）。",
+              "en": "Fusion off/on: depth adds shelving structures missed by single-plane LiDAR (original Fig. 11)."
+            },
+            "row": "navigation-validation",
+            "rowWidth": 1000
           }
         ]
+      },
+      {
+        "id": "experiments",
+        "title": {
+          "zh": "实验与验证",
+          "en": "Experiments and validation"
+        },
+        "paragraphs": [
+          {
+            "zh": "按钮检测数据集包含352张原始图像，经噪声、亮度、裁剪与旋转等增强得到5120张，按7∶2∶1划分训练、验证和测试集。YOLOv5n采用640×640输入，训练100轮；实机检测在N100计算单元上运行。",
+            "en": "The button dataset contains 352 original images, augmented to 5,120 using noise, brightness changes, cropping, and rotation, then split 7:2:1 for training, validation, and testing. YOLOv5n uses 640×640 inputs and 100 training epochs; robot-side detection runs on the N100 computer."
+          },
+          {
+            "zh": "按钮按压试验对绿、红、黄三类按钮各测试50次，成功次数分别为43、45、42，共130/150次，平均成功率86.67%。成功要求按钮被充分按下并能复位；该数值对应完整按压操作。",
+            "en": "Pressing trials test green, red, and yellow buttons 50 times each, with 43, 45, and 42 successes: 130/150 overall, or 86.67%. A successful trial requires adequate depression and return to the original button state; this measures the complete pressing operation."
+          },
+          {
+            "zh": "连续巡检对照实验分别在开启和关闭位姿重校准时运行6轮，共12轮。论文原表报告平均位置误差由0.1601米降至0.1211米，改善24.35%；平均朝向误差由4.3658°降至3.2002°，改善26.70%。各检查点改善幅度不同，位置结果中也存在未改善的检查点。",
+            "en": "Patrol comparison runs six consecutive rounds with recalibration enabled and six with it disabled, totaling twelve. The original tables report mean position error decreasing from 0.1601 m to 0.1211 m (24.35%) and mean orientation error from 4.3658° to 3.2002° (26.70%). Improvements vary across checkpoints, including one without improved position error."
+          },
+          {
+            "zh": "验证环境为平整地面的实物模拟机房，检查按钮的地图位姿预先配置。长距离移动和大角度转弯会影响定位，系统通过检查点接触继续重校准；这些实验结果限定在论文描述的配置与场景中。",
+            "en": "Validation uses a physical simulated machine room on flat terrain, with button map poses configured in advance. Long moves and large rotations affect localization, motivating repeated checkpoint contact updates. These results apply to the settings and hardware described in the paper."
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/patrol-inspection/paper/button-trials-table.webp",
+            "caption": {
+              "zh": "三类按钮各50次按压的原始结果（原文Table 1）。",
+              "en": "Original results for 50 pressing trials per button category (Table 1)."
+            },
+            "kind": "table",
+            "displayWidth": 680,
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/patrol-inspection/paper/position-errors-table.webp",
+            "caption": {
+              "zh": "开启/关闭接触校准的位置误差对照（原文Table 2）。",
+              "en": "Position errors with contact recalibration enabled/disabled (original Table 2)."
+            },
+            "kind": "table",
+            "row": "pose-error-tables",
+            "rowWidth": 1080
+          },
+          {
+            "src": "assets/projects/patrol-inspection/paper/orientation-errors-table.webp",
+            "caption": {
+              "zh": "开启/关闭接触校准的朝向误差对照（原文Table 3）。",
+              "en": "Orientation errors with contact recalibration enabled/disabled (original Table 3)."
+            },
+            "kind": "table",
+            "row": "pose-error-tables",
+            "rowWidth": 1080
+          }
+        ],
+        "source": {
+          "label": {
+            "zh": "图表来源：Zhesheng Zhang 与 Long Chen，IEEE Access（2025），DOI: 10.1109/ACCESS.2025.3553521",
+            "en": "Figures and tables: Zhesheng Zhang and Long Chen, IEEE Access (2025), DOI: 10.1109/ACCESS.2025.3553521"
+          },
+          "url": "https://doi.org/10.1109/ACCESS.2025.3553521"
+        }
       }
     ],
     "categoryKey": "manipulation",

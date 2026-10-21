@@ -2890,6 +2890,384 @@ export const media = {
         }
       ]
     },
+    "assets/projects/patrol-inspection/paper/button-recognition.thumb-320.webp": {
+      "width": 320,
+      "height": 266
+    },
+    "assets/projects/patrol-inspection/paper/button-recognition.thumb-480.webp": {
+      "width": 480,
+      "height": 399
+    },
+    "assets/projects/patrol-inspection/paper/button-recognition.thumb-640.webp": {
+      "width": 640,
+      "height": 532
+    },
+    "assets/projects/patrol-inspection/paper/button-recognition.thumb-960.webp": {
+      "width": 960,
+      "height": 798
+    },
+    "assets/projects/patrol-inspection/paper/button-recognition.webp": {
+      "width": 1300,
+      "height": 1080,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-recognition.thumb-320.webp",
+          "width": 320,
+          "height": 266
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-recognition.thumb-480.webp",
+          "width": 480,
+          "height": 399
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-recognition.thumb-640.webp",
+          "width": 640,
+          "height": 532
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-recognition.thumb-960.webp",
+          "width": 960,
+          "height": 798
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/button-trials-table.thumb-320.webp": {
+      "width": 320,
+      "height": 92
+    },
+    "assets/projects/patrol-inspection/paper/button-trials-table.thumb-480.webp": {
+      "width": 480,
+      "height": 138
+    },
+    "assets/projects/patrol-inspection/paper/button-trials-table.thumb-640.webp": {
+      "width": 640,
+      "height": 184
+    },
+    "assets/projects/patrol-inspection/paper/button-trials-table.thumb-960.webp": {
+      "width": 960,
+      "height": 276
+    },
+    "assets/projects/patrol-inspection/paper/button-trials-table.webp": {
+      "width": 1029,
+      "height": 296,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-trials-table.thumb-320.webp",
+          "width": 320,
+          "height": 92
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-trials-table.thumb-480.webp",
+          "width": 480,
+          "height": 138
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-trials-table.thumb-640.webp",
+          "width": 640,
+          "height": 184
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/button-trials-table.thumb-960.webp",
+          "width": 960,
+          "height": 276
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-320.webp": {
+      "width": 320,
+      "height": 171
+    },
+    "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-480.webp": {
+      "width": 480,
+      "height": 257
+    },
+    "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-640.webp": {
+      "width": 640,
+      "height": 343
+    },
+    "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-960.webp": {
+      "width": 960,
+      "height": 514
+    },
+    "assets/projects/patrol-inspection/paper/coordinate-frames.webp": {
+      "width": 1500,
+      "height": 803,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-320.webp",
+          "width": 320,
+          "height": 171
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-480.webp",
+          "width": 480,
+          "height": 257
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-640.webp",
+          "width": 640,
+          "height": 343
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/coordinate-frames.thumb-960.webp",
+          "width": 960,
+          "height": 514
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-320.webp": {
+      "width": 320,
+      "height": 130
+    },
+    "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-480.webp": {
+      "width": 480,
+      "height": 195
+    },
+    "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-640.webp": {
+      "width": 640,
+      "height": 259
+    },
+    "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-960.webp": {
+      "width": 960,
+      "height": 389
+    },
+    "assets/projects/patrol-inspection/paper/orientation-errors-table.webp": {
+      "width": 1029,
+      "height": 417,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-320.webp",
+          "width": 320,
+          "height": 130
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-480.webp",
+          "width": 480,
+          "height": 195
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-640.webp",
+          "width": 640,
+          "height": 259
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/orientation-errors-table.thumb-960.webp",
+          "width": 960,
+          "height": 389
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/patrol-route.thumb-320.webp": {
+      "width": 320,
+      "height": 202
+    },
+    "assets/projects/patrol-inspection/paper/patrol-route.thumb-480.webp": {
+      "width": 480,
+      "height": 303
+    },
+    "assets/projects/patrol-inspection/paper/patrol-route.thumb-640.webp": {
+      "width": 640,
+      "height": 404
+    },
+    "assets/projects/patrol-inspection/paper/patrol-route.thumb-960.webp": {
+      "width": 960,
+      "height": 606
+    },
+    "assets/projects/patrol-inspection/paper/patrol-route.webp": {
+      "width": 1500,
+      "height": 947,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/patrol-route.thumb-320.webp",
+          "width": 320,
+          "height": 202
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/patrol-route.thumb-480.webp",
+          "width": 480,
+          "height": 303
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/patrol-route.thumb-640.webp",
+          "width": 640,
+          "height": 404
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/patrol-route.thumb-960.webp",
+          "width": 960,
+          "height": 606
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/position-errors-table.thumb-320.webp": {
+      "width": 320,
+      "height": 128
+    },
+    "assets/projects/patrol-inspection/paper/position-errors-table.thumb-480.webp": {
+      "width": 480,
+      "height": 193
+    },
+    "assets/projects/patrol-inspection/paper/position-errors-table.thumb-640.webp": {
+      "width": 640,
+      "height": 257
+    },
+    "assets/projects/patrol-inspection/paper/position-errors-table.thumb-960.webp": {
+      "width": 960,
+      "height": 385
+    },
+    "assets/projects/patrol-inspection/paper/position-errors-table.webp": {
+      "width": 1029,
+      "height": 413,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/position-errors-table.thumb-320.webp",
+          "width": 320,
+          "height": 128
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/position-errors-table.thumb-480.webp",
+          "width": 480,
+          "height": 193
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/position-errors-table.thumb-640.webp",
+          "width": 640,
+          "height": 257
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/position-errors-table.thumb-960.webp",
+          "width": 960,
+          "height": 385
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/robot-prototype.thumb-320.webp": {
+      "width": 320,
+      "height": 422
+    },
+    "assets/projects/patrol-inspection/paper/robot-prototype.thumb-480.webp": {
+      "width": 480,
+      "height": 633
+    },
+    "assets/projects/patrol-inspection/paper/robot-prototype.thumb-640.webp": {
+      "width": 640,
+      "height": 844
+    },
+    "assets/projects/patrol-inspection/paper/robot-prototype.thumb-960.webp": {
+      "width": 960,
+      "height": 1266
+    },
+    "assets/projects/patrol-inspection/paper/robot-prototype.webp": {
+      "width": 992,
+      "height": 1308,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/robot-prototype.thumb-320.webp",
+          "width": 320,
+          "height": 422
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/robot-prototype.thumb-480.webp",
+          "width": 480,
+          "height": 633
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/robot-prototype.thumb-640.webp",
+          "width": 640,
+          "height": 844
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/robot-prototype.thumb-960.webp",
+          "width": 960,
+          "height": 1266
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-320.webp": {
+      "width": 320,
+      "height": 301
+    },
+    "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-480.webp": {
+      "width": 480,
+      "height": 452
+    },
+    "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-640.webp": {
+      "width": 640,
+      "height": 603
+    },
+    "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-960.webp": {
+      "width": 960,
+      "height": 904
+    },
+    "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.webp": {
+      "width": 1000,
+      "height": 942,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-320.webp",
+          "width": 320,
+          "height": 301
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-480.webp",
+          "width": 480,
+          "height": 452
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-640.webp",
+          "width": 640,
+          "height": 603
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/sensor-fusion-obstacles.thumb-960.webp",
+          "width": 960,
+          "height": 904
+        }
+      ]
+    },
+    "assets/projects/patrol-inspection/paper/software-architecture.thumb-320.webp": {
+      "width": 320,
+      "height": 218
+    },
+    "assets/projects/patrol-inspection/paper/software-architecture.thumb-480.webp": {
+      "width": 480,
+      "height": 326
+    },
+    "assets/projects/patrol-inspection/paper/software-architecture.thumb-640.webp": {
+      "width": 640,
+      "height": 435
+    },
+    "assets/projects/patrol-inspection/paper/software-architecture.thumb-960.webp": {
+      "width": 960,
+      "height": 653
+    },
+    "assets/projects/patrol-inspection/paper/software-architecture.webp": {
+      "width": 1600,
+      "height": 1088,
+      "variants": [
+        {
+          "src": "assets/projects/patrol-inspection/paper/software-architecture.thumb-320.webp",
+          "width": 320,
+          "height": 218
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/software-architecture.thumb-480.webp",
+          "width": 480,
+          "height": 326
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/software-architecture.thumb-640.webp",
+          "width": 640,
+          "height": 435
+        },
+        {
+          "src": "assets/projects/patrol-inspection/paper/software-architecture.thumb-960.webp",
+          "width": 960,
+          "height": 653
+        }
+      ]
+    },
     "assets/projects/patrol-inspection/poster.webp": {
       "width": 337,
       "height": 600
