@@ -1,0 +1,31 @@
+{
+  "video": { "width": 640, "height": 480, "fps": 15, "crf": "32", "maxrate": "320k", "bufsize": "640k" },
+  "image": { "maxSide": 1600, "quality": 78, "thumbnailQuality": 76 },
+  "thumbnailWidths": [320, 480, 640, 960],
+  "overrides": [
+    {
+      "patterns": ["assets/projects/sports-robot/*.mp4", "assets/projects/shuttlecock-grasping/*.mp4", "assets/projects/aloha/*.mp4", "assets/projects/wheel-leg/*.mp4", "assets/projects/chess-grasping/*.mp4"],
+      "video": { "fps": 18, "crf": "31" }
+    },
+    {
+      "patterns": ["assets/projects/lidar-3d/ppt-26.mp4", "assets/projects/image-goal/demo.mp4", "assets/projects/thermal-safety/detection.mp4", "assets/projects/personnel-tracking/fusion.mp4"],
+      "video": { "width": 960, "height": 540, "fps": 15, "crf": "31", "maxrate": "420k", "bufsize": "840k" }
+    },
+    {
+      "patterns": ["*.preview.mp4"],
+      "video": { "width": 420, "height": 280, "fps": 12, "crf": "33", "maxrate": "180k", "bufsize": "360k" }
+    },
+    {
+      "patterns": ["assets/papers/*.webp", "assets/projects/*/ppt/*.webp", "assets/projects/*/*architecture*.webp", "assets/projects/*/*framework*.webp", "assets/projects/*/*system*.webp"],
+      "image": { "quality": 82, "thumbnailQuality": 80 }
+    },
+    {
+      "patterns": ["assets/projects/*/overview.webp", "assets/projects/thermal-safety/transformer.webp", "assets/projects/thermal-safety/machine-guard.webp", "assets/projects/thermal-safety/uncovered-trench.webp", "assets/projects/thermal-safety/corroded-pipe.webp"],
+      "image": { "maxSide": 1280, "quality": 72, "thumbnailQuality": 72 }
+    },
+    {
+      "patterns": ["*poster.webp"],
+      "image": { "maxSide": 720, "quality": 64 }
+    }
+  ]
+}

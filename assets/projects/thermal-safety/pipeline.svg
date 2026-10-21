@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="370" viewBox="0 0 1400 370" role="img" aria-label="现场采集、辅助标注、YOLO检测训练与图片级Web验证流程">
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#687d81"/></marker></defs>
+  <rect width="1400" height="370" fill="#fff"/>
+  <g font-family="Microsoft YaHei,PingFang SC,sans-serif" fill="#111" text-anchor="middle">
+    <text x="700" y="44" font-size="26" font-weight="700">电厂场景视觉识别技术流程</text>
+    <g stroke="#d5dede" stroke-width="1.5">
+      <rect x="25" y="90" width="295" height="180" rx="12" fill="#edf4f1"/>
+      <rect x="377" y="90" width="295" height="180" rx="12" fill="#f4f1e9"/>
+      <rect x="729" y="90" width="295" height="180" rx="12" fill="#eef2f9"/>
+      <rect x="1081" y="90" width="295" height="180" rx="12" fill="#f7eeee"/>
+    </g>
+    <g font-size="24" font-weight="700">
+      <text x="173" y="132">现场数据采集</text><text x="525" y="132">辅助标注与校验</text><text x="877" y="132">多类别检测训练</text><text x="1229" y="132">Web 演示验证</text>
+    </g>
+    <g font-size="20">
+      <text x="173" y="182">监控素材抽帧与去重</text><text x="173" y="220">设备 · 人员 · 安全设施</text>
+      <text x="525" y="182">YOLO / SAM 辅助标注</text><text x="525" y="220">人工复核与稀缺样本补充</text>
+      <text x="877" y="182">YOLOv11 迁移训练</text><text x="877" y="220">类别、位置与置信度输出</text>
+      <text x="1229" y="182">Flask 图片上传与展示</text><text x="1229" y="220">独立人脸比对模块</text>
+    </g>
+    <text x="700" y="325" font-size="19">当前验证：图片级识别与离线演示；连续视频告警与时序判断有待完善。</text>
+  </g>
+  <g stroke="#687d81" stroke-width="2.5" marker-end="url(#arrow)"><path d="M330 180h35"/><path d="M682 180h35"/><path d="M1034 180h35"/></g>
+</svg>
