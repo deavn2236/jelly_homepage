@@ -4563,6 +4563,426 @@ export const media = {
           "height": 180
         }
       ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-320.webp": {
+      "width": 320,
+      "height": 173
+    },
+    "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-480.webp": {
+      "width": 480,
+      "height": 259
+    },
+    "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-640.webp": {
+      "width": 640,
+      "height": 345
+    },
+    "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-960.webp": {
+      "width": 960,
+      "height": 518
+    },
+    "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.webp": {
+      "width": 1035,
+      "height": 558,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-320.webp",
+          "width": 320,
+          "height": 173
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-480.webp",
+          "width": 480,
+          "height": 259
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-640.webp",
+          "width": 640,
+          "height": 345
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.thumb-960.webp",
+          "width": 960,
+          "height": 518
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-320.webp": {
+      "width": 320,
+      "height": 176
+    },
+    "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-480.webp": {
+      "width": 480,
+      "height": 263
+    },
+    "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-640.webp": {
+      "width": 640,
+      "height": 351
+    },
+    "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-960.webp": {
+      "width": 960,
+      "height": 527
+    },
+    "assets/projects/shuttlecock-grasping/paper/nested-configurations.webp": {
+      "width": 1035,
+      "height": 568,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-320.webp",
+          "width": 320,
+          "height": 176
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-480.webp",
+          "width": 480,
+          "height": 263
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-640.webp",
+          "width": 640,
+          "height": 351
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/nested-configurations.thumb-960.webp",
+          "width": 960,
+          "height": 527
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-320.webp": {
+      "width": 320,
+      "height": 209
+    },
+    "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-480.webp": {
+      "width": 480,
+      "height": 313
+    },
+    "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-640.webp": {
+      "width": 640,
+      "height": 417
+    },
+    "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-960.webp": {
+      "width": 960,
+      "height": 626
+    },
+    "assets/projects/shuttlecock-grasping/paper/unnest-architecture.webp": {
+      "width": 1920,
+      "height": 1252,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-320.webp",
+          "width": 320,
+          "height": 209
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-480.webp",
+          "width": 480,
+          "height": 313
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-640.webp",
+          "width": 640,
+          "height": 417
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/unnest-architecture.thumb-960.webp",
+          "width": 960,
+          "height": 626
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-320.webp": {
+      "width": 320,
+      "height": 253
+    },
+    "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-480.webp": {
+      "width": 480,
+      "height": 379
+    },
+    "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-640.webp": {
+      "width": 640,
+      "height": 506
+    },
+    "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-960.webp": {
+      "width": 960,
+      "height": 759
+    },
+    "assets/projects/shuttlecock-grasping/paper/twist-and-pull.webp": {
+      "width": 1039,
+      "height": 821,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-320.webp",
+          "width": 320,
+          "height": 253
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-480.webp",
+          "width": 480,
+          "height": 379
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-640.webp",
+          "width": 640,
+          "height": 506
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/twist-and-pull.thumb-960.webp",
+          "width": 960,
+          "height": 759
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-320.webp": {
+      "width": 320,
+      "height": 247
+    },
+    "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-480.webp": {
+      "width": 480,
+      "height": 371
+    },
+    "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-640.webp": {
+      "width": 640,
+      "height": 495
+    },
+    "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-960.webp": {
+      "width": 960,
+      "height": 742
+    },
+    "assets/projects/shuttlecock-grasping/paper/robot-platform.webp": {
+      "width": 1035,
+      "height": 800,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-320.webp",
+          "width": 320,
+          "height": 247
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-480.webp",
+          "width": 480,
+          "height": 371
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-640.webp",
+          "width": 640,
+          "height": 495
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/robot-platform.thumb-960.webp",
+          "width": 960,
+          "height": 742
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-320.webp": {
+      "width": 320,
+      "height": 565
+    },
+    "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-480.webp": {
+      "width": 480,
+      "height": 847
+    },
+    "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-640.webp": {
+      "width": 640,
+      "height": 1129
+    },
+    "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-960.webp": {
+      "width": 960,
+      "height": 1694
+    },
+    "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.webp": {
+      "width": 1037,
+      "height": 1830,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-320.webp",
+          "width": 320,
+          "height": 565
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-480.webp",
+          "width": 480,
+          "height": 847
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-640.webp",
+          "width": 640,
+          "height": 1129
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.thumb-960.webp",
+          "width": 960,
+          "height": 1694
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-320.webp": {
+      "width": 320,
+      "height": 162
+    },
+    "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-480.webp": {
+      "width": 480,
+      "height": 244
+    },
+    "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-640.webp": {
+      "width": 640,
+      "height": 325
+    },
+    "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-960.webp": {
+      "width": 960,
+      "height": 487
+    },
+    "assets/projects/shuttlecock-grasping/paper/perception-table.webp": {
+      "width": 967,
+      "height": 491,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-320.webp",
+          "width": 320,
+          "height": 162
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-480.webp",
+          "width": 480,
+          "height": 244
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-640.webp",
+          "width": 640,
+          "height": 325
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/perception-table.thumb-960.webp",
+          "width": 960,
+          "height": 487
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-320.webp": {
+      "width": 320,
+      "height": 102
+    },
+    "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-480.webp": {
+      "width": 480,
+      "height": 154
+    },
+    "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-640.webp": {
+      "width": 640,
+      "height": 205
+    },
+    "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-960.webp": {
+      "width": 960,
+      "height": 307
+    },
+    "assets/projects/shuttlecock-grasping/paper/manipulation-table.webp": {
+      "width": 1025,
+      "height": 328,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-320.webp",
+          "width": 320,
+          "height": 102
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-480.webp",
+          "width": 480,
+          "height": 154
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-640.webp",
+          "width": 640,
+          "height": 205
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/manipulation-table.thumb-960.webp",
+          "width": 960,
+          "height": 307
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-320.webp": {
+      "width": 320,
+      "height": 106
+    },
+    "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-480.webp": {
+      "width": 480,
+      "height": 159
+    },
+    "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-640.webp": {
+      "width": 640,
+      "height": 212
+    },
+    "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-960.webp": {
+      "width": 960,
+      "height": 318
+    },
+    "assets/projects/shuttlecock-grasping/paper/ablation-table.webp": {
+      "width": 1013,
+      "height": 336,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-320.webp",
+          "width": 320,
+          "height": 106
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-480.webp",
+          "width": 480,
+          "height": 159
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-640.webp",
+          "width": 640,
+          "height": 212
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/ablation-table.thumb-960.webp",
+          "width": 960,
+          "height": 318
+        }
+      ]
+    },
+    "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-320.webp": {
+      "width": 320,
+      "height": 318
+    },
+    "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-480.webp": {
+      "width": 480,
+      "height": 476
+    },
+    "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-640.webp": {
+      "width": 640,
+      "height": 635
+    },
+    "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-960.webp": {
+      "width": 960,
+      "height": 953
+    },
+    "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.webp": {
+      "width": 1035,
+      "height": 1027,
+      "variants": [
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-320.webp",
+          "width": 320,
+          "height": 318
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-480.webp",
+          "width": 480,
+          "height": 476
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-640.webp",
+          "width": 640,
+          "height": 635
+        },
+        {
+          "src": "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.thumb-960.webp",
+          "width": 960,
+          "height": 953
+        }
+      ]
     }
   },
   "videos": {

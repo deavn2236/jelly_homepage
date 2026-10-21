@@ -1589,8 +1589,8 @@ export const projects = [
       "en": "Shuttlecock collection robot"
     },
     "summary": {
-      "zh": "面向单球与堆叠羽毛球拾取，以 YOLOv5 关键点估计抓握姿态并抖动分离；实机单球/多球准确率97.83%/95.1%。",
-      "en": "For single and stacked shuttlecock pickup, YOLOv5 keypoints guide grasp poses and shaking separates targets; real grasp accuracy is 97.83% for single and 95.1% for multiple shuttlecocks."
+      "zh": "面向堆叠勾连羽毛球拾取，以点云补全、图注意力推理与倾转抽取实现逐个分离；实机困难场景抓取成功率95.1%、清场率96.5%。",
+      "en": "For nested shuttlecock retrieval, point-cloud completion, graph attention and tilt-and-pull extraction work together; hard-scene robot tests achieve 95.1% grasp success and 96.5% clearing."
     },
     "facts": [
       {
@@ -1599,18 +1599,28 @@ export const projects = [
           "en": "Task"
         },
         "value": {
-          "zh": "羽毛球识别、夹取与分离",
-          "en": "Shuttlecock recognition, pickup, and separation"
+          "zh": "遮挡、嵌套与勾连羽毛球的逐个分离和清场",
+          "en": "Sequential extraction and clearing of occluded, nested shuttlecocks"
         }
       },
       {
         "label": {
-          "zh": "感知方法",
-          "en": "Perception"
+          "zh": "方法",
+          "en": "Approach"
         },
         "value": {
-          "zh": "YOLOv5关键部位检测与几何姿态估计",
-          "en": "YOLOv5 key-region detection and geometric pose estimation"
+          "zh": "UNNEST：非模态感知、拓扑推理与物理约束操作",
+          "en": "UNNEST: amodal perception, topological reasoning and physics-aware manipulation"
+        }
+      },
+      {
+        "label": {
+          "zh": "实机平台",
+          "en": "Robot platform"
+        },
+        "value": {
+          "zh": "UR5 · PGE-50 平行夹爪 · ZED 2i 双目相机 · ROS",
+          "en": "UR5 · PGE-50 parallel gripper · ZED 2i stereo camera · ROS"
         }
       }
     ],
@@ -1623,40 +1633,39 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "羽毛球的球头、羽身和方向差异会改变可夹持位置；多球堆叠或勾连时，直接闭合夹爪容易同时带起多个目标。项目围绕球体姿态判断与抓取后的目标分离，完成自动捡球的视觉与机械臂流程。",
-            "en": "A shuttlecock’s head, feather body, and orientation affect its graspable region. Piled or entangled targets can be lifted together by a simple gripper closure. The project connects pose-aware perception with post-grasp separation for automatic collection."
+            "zh": "羽毛球具有刚性球头与柔性羽裙，多球随机堆叠后会形成侧向嵌套、竖向套叠和反向勾连。球头被遮挡时，仅依据可见羽毛直接夹取，容易压坏羽裙、滑脱，或因锥形接触面的摩擦自锁同时带起相邻目标。项目围绕这类形状相似、存在物理依赖的目标，研究从杂乱堆叠中逐个安全取出的视觉操作方法。",
+            "en": "Shuttlecocks combine a rigid cork head with a compliant feather skirt. Random piles create lateral nesting, vertical stacking and reverse interlocking. When the cork head is hidden, grasping visible feathers can cause deformation or slippage; friction between nested conical surfaces can also co-lift neighboring objects. The project addresses sequential extraction of visually similar objects with coupled physical dependencies."
           }
-        ],
-        "points": [],
-        "figures": []
+        ]
       },
       {
         "id": "task",
         "title": {
           "zh": "任务说明",
-          "en": "Tasks"
+          "en": "Task"
         },
         "paragraphs": [
           {
-            "zh": "识别单球或多球场景中的球头与球身关键部位，估计目标方向和夹持姿态，控制机械臂接近并夹取目标。对堆叠与勾连情况，在抓取后执行摆动、抖动等分离动作，取出目标羽毛球。",
-            "en": "Detect head and body key regions in single- and multiple-shuttlecock scenes, estimate target orientation and grasp pose, and execute the approach and pickup. Swinging and shaking after closure separate the target from piled or entangled neighbors."
+            "zh": "输入工作区的 RGB-D 观测，分离相互接触的羽毛球实例，补全被遮挡的几何结构并确定球头抓取位姿；进一步判断“先取哪一个”，控制机械臂完成接近、夹持、倾转和抽离。每次取球后重新观测场景并更新取球顺序，逐步完成工作区清场。",
+            "en": "From RGB-D observations, separate touching shuttlecock instances, reconstruct hidden geometry and estimate a cork-head grasp pose. Determine which object can be removed next, then execute approach, closure, tilting and extraction. Re-observe the scene after each attempt and update the removal order until the workspace is cleared."
           }
         ],
-        "points": [],
         "figures": [
           {
-            "src": "assets/projects/shuttlecock-grasping/ppt/summary-image25.webp",
+            "src": "assets/projects/shuttlecock-grasping/paper/nested-configurations.webp",
             "caption": {
-              "zh": "视觉捡球中的嵌套、竖向与勾连场景",
-              "en": "Nested, upright, and entangled configurations in the collection system"
-            }
+              "zh": "侧向嵌套、竖向套叠与反向勾连三类任务场景（Fig. 2）。",
+              "en": "Lateral nesting, vertical stacking and reverse interlocking (Fig. 2)."
+            },
+            "row": "task-scenes"
           },
           {
-            "src": "assets/projects/shuttlecock-grasping/ppt/summary-image24.webp",
+            "src": "assets/projects/shuttlecock-grasping/paper/naive-grasp-failures.webp",
             "caption": {
-              "zh": "视觉捡球中的夹持方向选择",
-              "en": "Grasp-orientation choice in the collection system"
-            }
+              "zh": "直接抓取中的羽毛受损、压缩变形与滑脱现象（Fig. 1）。",
+              "en": "Feather damage, compression and slippage from naive grasping (Fig. 1)."
+            },
+            "row": "task-scenes"
           }
         ]
       },
@@ -1668,19 +1677,19 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "实机由机械臂、夹爪、相机与控制计算单元组成，基于 ROS 连接图像识别、抓握姿态计算和机械臂动作执行。",
-            "en": "The prototype combines a robot arm, gripper, camera, and control computer. ROS connects image recognition, grasp-pose estimation, and arm execution."
+            "zh": "实验平台采用六自由度 UR5 机械臂与大寰 PGE-50 平行夹爪，ZED 2i 双目相机以眼在手上的方式采集近距离 RGB-D 数据。工作站配置 Intel Core i7-12700KF 与 NVIDIA GeForce RTX 3080，通过 ROS 完成感知、决策与机械臂控制模块通信，并配合同步仿真环境检查轨迹的可行性。",
+            "en": "The platform uses a six-DoF UR5 arm with a DH-Robotics PGE-50 parallel-jaw gripper. An eye-in-hand ZED 2i stereo camera acquires close-range RGB-D data. An Intel Core i7-12700KF / NVIDIA GeForce RTX 3080 workstation runs the perception and reasoning modules, with ROS providing inter-module communication and arm control. A synchronized simulation environment supports trajectory-feasibility checks."
           }
         ],
-        "points": [],
         "figures": [
           {
-            "src": "assets/projects/shuttlecock-grasping/ppt/summary-image27.webp",
+            "src": "assets/projects/shuttlecock-grasping/paper/robot-platform.webp",
             "caption": {
-              "zh": "视觉捡球样机及识别界面",
-              "en": "Prototype and perception interface for the collection system"
+              "zh": "UR5 操作平台、眼在手上视觉配置及同步仿真环境（Fig. 5）。",
+              "en": "UR5 manipulation platform, eye-in-hand vision and synchronized simulation (Fig. 5)."
             },
-            "role": "main"
+            "role": "main",
+            "displayWidth": 560
           }
         ]
       },
@@ -1692,51 +1701,70 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "系统把关键部位检测、几何姿态计算与分步机械臂控制连接起来，解决羽毛球姿态变化和堆叠勾连。",
-            "en": "The system combines key-part detection, geometric pose computation, and staged arm control to address pose variation and entangled shuttlecocks."
-          }
-        ],
-        "points": [],
-        "figures": [
-          {
-            "src": "assets/projects/shuttlecock-grasping/ppt/summary-image118.webp",
-            "caption": {
-              "zh": "视觉捡球的识别与抓取流程",
-              "en": "Perception and grasp-control pipeline for collection"
-            },
-            "displayWidth": 700
+            "zh": "UNNEST 将“感知—补全—推理—执行”组织为闭环。完整几何用于确定可抓取球头，交互图用于约束取球顺序，倾转抽取动作用于解除摩擦卡锁，随后通过重新感知处理取球造成的场景变化。",
+            "en": "UNNEST forms a closed-loop Perceive–Complete–Reason–Act pipeline. Completed geometry localizes graspable cork heads, an interaction graph constrains removal order, and a tilt-and-pull action releases frictional locks. Re-observation handles scene changes after each extraction attempt."
           }
         ],
         "techniques": [
           {
             "name": {
-              "zh": "YOLOv5 关键部位检测",
-              "en": "YOLOv5 key-part detection"
+              "zh": "动态卷积实例分割",
+              "en": "Dynamic-convolution instance segmentation"
             },
             "description": {
-              "zh": "检测球头与球身关键点，获得比普通目标框更适合抓取姿态估计的结构信息。",
-              "en": "Detect shuttlecock heads and body keypoints, providing structural information for grasp-pose estimation beyond a bounding box."
+              "zh": "借鉴 ISBNet 的动态卷积机制，以 Sparse U-Net 提取逐点特征，并为不同实例预测专属卷积核与掩码。该无聚类分割策略用于区分物理接触、羽裙交叠且外形相似的羽毛球，再裁剪出各实例的局部点云。",
+              "en": "Following the dynamic-convolution mechanism of ISBNet, a Sparse U-Net extracts per-point features and an instance head predicts object-specific kernels and masks. Cluster-free segmentation separates physically touching, overlapping and visually similar shuttlecocks before cropping their partial point clouds."
             }
           },
           {
             "name": {
-              "zh": "几何方向与抓握位姿求解",
-              "en": "Geometric direction and grasp-pose estimation"
+              "zh": "非模态点云补全与 PCA 位姿求解",
+              "en": "Amodal completion and PCA-based pose extraction"
             },
             "description": {
-              "zh": "利用关键点相对位置求解方向矢量，选择骨架主干上的抓握点和夹爪方向，将视觉检测结果转成操作位姿。",
-              "en": "Estimate the direction vector from keypoint geometry and select a grasp point and gripper orientation along the body, converting visual detections into manipulation poses."
+              "zh": "采用 PoinTr 式几何感知 Transformer，由可见局部点云恢复包含遮挡球头的完整形状；通过主成分分析（PCA）提取对称主轴，沿主轴定位刚性球头，并约束夹爪闭合方向与主轴正交，生成抓取位姿。",
+              "en": "A PoinTr-inspired geometry-aware Transformer reconstructs the complete shape, including the hidden cork head, from partial observations. Principal component analysis estimates the symmetry axis; the rigid head is localized along it, and the gripper closing direction is constrained to be orthogonal to that axis."
             }
           },
           {
             "name": {
-              "zh": "ROS 分步控制与抖动分离",
-              "en": "ROS staged control and shaking-based separation"
+              "zh": "交互图与 GATv2 取球顺序推理",
+              "en": "Interaction graph and GATv2 removal-order reasoning"
             },
             "description": {
-              "zh": "按接近、夹紧、抬升和抖动分离组织动作，在夹取后加入摆动以处理多球堆叠和勾连。",
-              "en": "Sequence approach, closure, lifting, and shaking in ROS, adding post-grasp motion to separate stacked or entangled shuttlecocks."
+              "zh": "以实例的位置、姿态与高度为节点特征，通过高度差和水平邻近关系建立有向约束边。GATv2 进行注意力消息传递并预测各实例的可移除得分，优先取出约束较少的目标；对侧向勾连，结合姿态特征推断相互依赖关系。",
+              "en": "Nodes encode instance position, orientation and height, while directed edges introduce height and horizontal-neighborhood constraints. GATv2 propagates relational information and predicts removability scores to select a less-constrained target. Pose features also support reasoning about lateral interlocking."
             }
+          },
+          {
+            "name": {
+              "zh": "Twist-and-Pull 倾转抽取",
+              "en": "Physics-aware Twist-and-Pull extraction"
+            },
+            "description": {
+              "zh": "夹紧刚性球头后，以球头为支点施加俯仰倾转，使嵌套羽裙产生几何错位，再配合抽离解除摩擦自锁。动作随嵌套状态调整：松散目标可直接提取，深度嵌套目标先倾转（论文示例约30°），减少相邻羽毛球被共同抬起的情况。",
+              "en": "After grasping the cork head, apply a pitch tilt about it to misalign the nested skirts, then retract to release the frictional taper lock. Loosely scattered objects can be lifted directly; deeply nested objects receive a tilt first, with about 30° used as an example in the paper, reducing unintended co-lifting."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/shuttlecock-grasping/paper/unnest-architecture.webp",
+            "caption": {
+              "zh": "UNNEST 方法架构：实例分割、点云补全、位姿提取与图注意力决策（Fig. 3）。",
+              "en": "UNNEST architecture: segmentation, completion, pose extraction and graph-attention decisions (Fig. 3)."
+            },
+            "displayWidth": 960,
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/shuttlecock-grasping/paper/twist-and-pull.webp",
+            "caption": {
+              "zh": "倾转抽取的动作设计：由竖直提拉时共同抬起，转为错位解锁后单独抽取（Fig. 4）。",
+              "en": "Twist-and-Pull action design: tilt to release the taper lock and avoid co-lifting (Fig. 4)."
+            },
+            "displayWidth": 640,
+            "layout": "full"
           }
         ]
       },
@@ -1748,50 +1776,96 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "实机片段展示捡球样机与羽毛球抓取过程，以下识别图和实验结果对应同一类视觉捡球任务。",
-            "en": "The robot clip demonstrates the collection prototype and shuttlecock grasping. The perception images and reported experiments concern the same visual pickup task."
+            "zh": "实机视频展示捡球样机与羽毛球拾取过程。下方三组论文图展示侧向嵌套、深度竖向套叠与反向勾连中的感知结果、抓取接近和倾转抽取，说明系统如何定位被遮挡球头并按结构依赖逐个取出目标。",
+            "en": "The robot video shows the collection prototype and pickup process. The three configurations below illustrate perception, grasp approach and tilt-and-pull extraction for lateral nesting, deep vertical stacking and reverse interlocking, showing how hidden heads are localized and objects are removed according to structural dependencies."
           }
         ],
-        "points": [],
         "figures": [
           {
             "video": "assets/projects/shuttlecock-grasping/demo.mp4",
             "poster": "assets/projects/shuttlecock-grasping/poster.webp",
             "caption": {
-              "zh": "羽毛球视觉捡球演示",
-              "en": "Visual shuttlecock collection system demonstration"
+              "zh": "羽毛球视觉捡取实机演示",
+              "en": "Real-robot visual shuttlecock pickup"
             }
+          },
+          {
+            "src": "assets/projects/shuttlecock-grasping/paper/qualitative-extraction.webp",
+            "caption": {
+              "zh": "三类嵌套结构下的点云感知、接近与倾转抽取过程；各列分别对应侧向、竖向与反向勾连（Fig. 8）。",
+              "en": "Perception, approach and tilt-and-pull execution for lateral, vertical and reverse-interlocked configurations (Fig. 8)."
+            },
+            "displayWidth": 600
           }
         ]
       },
       {
         "id": "experiments",
         "title": {
-          "zh": "实验结果",
-          "en": "Experimental results"
+          "zh": "实验与基线对比",
+          "en": "Experiments and baseline comparisons"
         },
         "paragraphs": [
           {
-            "zh": "实机单羽毛球抓取准确率为97.83%，多羽毛球抓取准确率为95.1%。姿态检测和夹持后抖动分别对应目标选择与堆叠分离环节。",
-            "en": "Physical tests report 97.83% accuracy for single-shuttlecock grasping and 95.1% for multiple shuttlecocks. Pose detection supports target selection, while post-grasp shaking handles separation."
+            "zh": "NBD 数据集包含500个随机堆叠场景：羽毛球从50厘米高度落入40×40厘米工作区，并标注实例掩码与6D位姿。按目标密度分为 Easy（5球）、Medium（10球）与 Hard（15球及以上）。端到端实机评估覆盖90个场景、超过1,000次抓取尝试。",
+            "en": "The Nested Badminton Dataset contains 500 randomly generated scenes: shuttlecocks are dropped from 50 cm into a 40 × 40 cm workspace and annotated with instance masks and 6D poses. Difficulty levels are Easy (5 objects), Medium (10) and Hard (15+). End-to-end robot evaluation spans 90 scenes and over 1,000 grasping attempts."
+          },
+          {
+            "zh": "原文分别报告单次抓取成功率（SR）与场景清场率（CR）。UNNEST 在 Hard 场景下达到95.1% SR、96.5% CR；YOLOv8-Heuristic、Mask3D+CGN 与 AnyGrasp 的 CR 分别为36.5%、55.0%与52.0%。下方直接保留论文主实验原表及各难度结果。",
+            "en": "The paper reports Grasp Success Rate (SR) and Scene Clearing Rate (CR) separately. UNNEST achieves 95.1% SR and 96.5% CR in Hard scenes; CR is 36.5% for YOLOv8-Heuristic, 55.0% for Mask3D+CGN and 52.0% for AnyGrasp. The original main-results table below retains all difficulty levels."
+          },
+          {
+            "zh": "感知实验中，Hard 场景实例分割 mAP@50 为89.2%，补全后的 Chamfer Distance 由15.4×10⁻³降至3.8×10⁻³。消融实验显示，移除点云补全、交互图或倾转动作后，Hard 场景 CR 分别降至72.0%、83.9%与86.5%。这些结果对应受控桌面嵌套操作；极端遮挡（可见表面不足10%）和严重形变仍会影响几何恢复与抓取。",
+            "en": "Hard-scene segmentation reaches 89.2% mAP@50, while completion reduces Chamfer Distance from 15.4 × 10⁻³ to 3.8 × 10⁻³. Removing completion, the interaction graph or the tilt primitive reduces Hard-scene CR to 72.0%, 83.9% or 86.5%, respectively. These results concern controlled tabletop nested-object manipulation; extreme occlusion (less than 10% visible surface) and severe deformation remain challenging."
           }
         ],
-        "points": [],
         "figures": [
           {
-            "src": "assets/projects/shuttlecock-grasping/ppt/summary-image26.webp",
+            "src": "assets/projects/shuttlecock-grasping/paper/manipulation-table.webp",
             "caption": {
-              "zh": "视觉捡球的关键部位检测结果",
-              "en": "Key-region detection for the collection system"
-            }
+              "zh": "端到端操作主实验原表：不同难度下的 SR 与 CR（Table II）。",
+              "en": "Original end-to-end manipulation results: SR and CR across difficulty levels (Table II)."
+            },
+            "kind": "table",
+            "displayWidth": 960,
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/shuttlecock-grasping/paper/perception-table.webp",
+            "caption": {
+              "zh": "实例分割与几何补全实验原表；CD 越低越好（Table I）。",
+              "en": "Original segmentation and completion results; lower CD is better (Table I)."
+            },
+            "kind": "table",
+            "row": "module-tables",
+            "rowWidth": 1080
+          },
+          {
+            "src": "assets/projects/shuttlecock-grasping/paper/ablation-table.webp",
+            "caption": {
+              "zh": "点云补全、交互图与倾转动作的消融实验原表（Table III）。",
+              "en": "Original ablations of completion, interaction graph and tilt primitive (Table III)."
+            },
+            "kind": "table",
+            "row": "module-tables",
+            "rowWidth": 1080
+          },
+          {
+            "src": "assets/projects/shuttlecock-grasping/paper/clearing-efficiency.webp",
+            "caption": {
+              "zh": "Hard 场景30次试验的平均剩余目标数量与标准差，展示连续清场效率（Fig. 10）。",
+              "en": "Mean remaining objects and standard deviation over 30 Hard-scene trials (Fig. 10)."
+            },
+            "displayWidth": 720,
+            "layout": "full"
           }
         ]
       }
     ],
     "categoryKey": "manipulation",
     "category": {
-      "zh": "视觉抓取",
-      "en": "Visual grasping"
+      "zh": "视觉抓取与嵌套分离",
+      "en": "Visual grasping & disentanglement"
     },
     "media": {
       "video": "assets/projects/shuttlecock-grasping/demo.mp4",

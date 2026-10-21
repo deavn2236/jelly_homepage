@@ -138,3 +138,13 @@ Kangaroo首页和室内演示从原片49.7秒开始，到139.7秒结束；室外
 - 当前仓库原有同名 `patrol-inspection` 精简版；本次以 `deavn.github.io` 中的完整双语项目内容更新，保留原有项目 ID、首页位置、时间、本人职责和演示视频。
 - 迁入背景、任务、设备、系统方法、实机演示和实验验证六节，以及九张来自 Zhesheng Zhang 与 Long Chen 的 IEEE Access 2025 论文的图表及响应式缩略图；详情页附原文 DOI 链接。来源：https://doi.org/10.1109/ACCESS.2025.3553521。
 - 按压成功率 86.67% 指三类按钮合计 130/150 次完整按压；位置误差均值由 0.1601 米降至 0.1211 米，限定于原论文所述的模拟机房、预设按钮位姿和实机测试条件。
+
+
+## 捡球机器人：UNNEST 论文内容更新（2026-10-21）
+
+- 依据本人提供的 IROS26_1049_MS.pdf（UNNEST: Understanding Nested Networks for Extricating Stacked Targets via Amodal Reasoning），更新中英文简介及背景、任务、设备、系统方法、演示和实验内容。完整源 PDF 留在仓库外，不新增论文全文下载或发表状态。
+- 方法为 ISBNet 式动态卷积实例分割、PoinTr 式几何感知 Transformer 补全、PCA 主轴/球头位姿提取、交互图与 GATv2 可移除性推理，以及俯仰倾转的 Twist-and-Pull 抽取。移除原先 YOLOv5、通用抖动与 97.83% 单球指标，避免混用旧版 PPT 与本稿方法。
+- 硬件采用原稿 UR5、DH-Robotics PGE-50、眼在手上 ZED 2i、i7-12700KF/RTX 3080 和 ROS。未将 MoveIt、触觉力控、移动球场清扫或未注明的训练划分写入项目。
+- NBD 为500场景；Easy/Medium/Hard 为5/10/15+目标；端到端评估90场景、超过1000次抓取。Hard 的 SR=95.1%、CR=96.5%；89.2%为分割 mAP@50，CD 为15.4→3.8（×10^-3），不混用指标。消融 CR 为72.0%/83.9%/86.5%。仅描述受控桌面实机验证，保留极端遮挡与形变局限。
+- Fig.1/2/3/4/5/8/10、Table I/II/III 从原稿300dpi页面裁取，包含完整原图号、图注、表头与单位。仅展示图表片段，生成保留比例的WebP及320/480/640/960px响应式版本；架构放系统、执行放演示、原表放实验，避免重复。
+- 只同步 shuttlecock-grasping 项目对象及新增图像索引/资源至 deavn.github.io 与 jelly_homepage，各仓库自己的导航、站点 URL、其他项目和视频文件均保持。
