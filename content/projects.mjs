@@ -1404,41 +1404,61 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "围绕示教数据、动作片段建模和机器人执行组织模仿学习流程，区分仿真验证与实机操作。",
-            "en": "The imitation-learning pipeline connects demonstrations, action-chunk modeling, and robot execution, with simulation and physical tests presented separately."
+            "zh": "方法围绕同步示教、目标语义观测与动作片段预测展开。Semantic-Masked ACT 在多视角 RGB 图像进入 ACT 策略前提取目标物体语义掩码，将目标区域保留在观测中，再把视觉特征与关节状态共同用于预测一段连续动作。",
+            "en": "The method connects synchronized demonstrations, target-semantic observations and action-chunk prediction. Before multi-view RGB images enter the ACT policy, Semantic-Masked ACT extracts target-object masks and retains the target regions. Visual features and joint states then condition a continuous sequence of future actions."
           }
         ],
         "points": [],
-        "figures": [],
+        "figures": [
+          {
+            "src": "assets/projects/aloha/methods/semantic-masked-act.webp",
+            "caption": {
+              "zh": "Semantic-Masked ACT 方法架构：多视角语义掩码观测、视觉与关节 token 编码，以及动作片段预测。",
+              "en": "Semantic-Masked ACT: multi-view semantic masking, visual and joint tokens, and action-chunk prediction."
+            },
+            "layout": "full",
+            "displayWidth": 960
+          }
+        ],
         "techniques": [
           {
             "name": {
-              "zh": "主从遥操作与同步数据采集",
-              "en": "Leader–follower teleoperation and synchronized data"
+              "zh": "主从遥操作与同步示教",
+              "en": "Leader–follower teleoperation and synchronized demonstrations"
             },
             "description": {
-              "zh": "同步记录相机图像、关节状态与人工示教动作，建立观测和动作序列的时间对应，为单臂抓取与双臂交接提供训练样本。",
-              "en": "Record camera images, joint states, and demonstrated actions with temporal alignment, providing examples for single-arm grasping and bimanual handoff."
+              "zh": "通过主机械臂带动从机械臂执行，同步记录多视角图像、关节状态与示教动作，建立观测和动作的时间对应，为抓取、交接与双臂分离任务提供训练序列。",
+              "en": "Leader arms guide follower execution while multi-view images, joint states and demonstrated actions are recorded with temporal alignment, forming training sequences for grasping, handover and bimanual separation."
             }
           },
           {
             "name": {
-              "zh": "ACT 动作片段模仿学习",
-              "en": "ACT action-chunk imitation learning"
+              "zh": "目标语义掩码与视觉 token",
+              "en": "Target-semantic masks and visual tokens"
             },
             "description": {
-              "zh": "用连续动作片段表示操作技能，训练模型从视觉与关节观测预测后续动作序列，并将输出接入机械臂执行流程。",
-              "en": "Represent manipulation through action chunks, train predictions of subsequent actions from visual and joint observations, and connect the sequences to arm execution."
+              "zh": "从各视角图像提取待操作物体的语义区域，利用掩码保留目标并屏蔽其余像素，再编码为 masked visual tokens。该输入设计使策略显式围绕目标区域建模；原始 ACT 直接编码完整 RGB 观测的路径在图中以虚线对照。",
+              "en": "Extract the target region in each view, retain it with a semantic mask and suppress other pixels before producing masked visual tokens. This input design explicitly focuses modeling on the target region; the diagram contrasts it with the dashed path that directly encodes complete RGB observations in original ACT."
             }
           },
           {
             "name": {
-              "zh": "Mask 观测与航点式模仿学习探索",
-              "en": "Mask observations and waypoint-based learning"
+              "zh": "Transformer 编解码与动作片段预测",
+              "en": "Transformer encoding, decoding and action chunks"
             },
             "description": {
-              "zh": "分别测试目标区域 mask 与航点组织方式，比较不同观测和动作表示对羽毛球拿取、交接及嵌套分离过程的影响。",
-              "en": "Explore target-region masks and waypoint representations, examining their effects on shuttlecock pickup, handoff, and nested-object separation."
+              "zh": "ACT 策略结合掩码视觉 token、关节状态 token 与潜变量 z，通过 Transformer Encoder–Decoder 及固定位置编码预测多个后续时刻的动作，组成 action chunk，再接入机器人执行流程。",
+              "en": "The ACT policy combines masked visual tokens, joint-state tokens and latent z. A Transformer encoder–decoder with fixed positional embeddings predicts actions for multiple future time steps as an action chunk, which is passed to robot execution."
+            }
+          },
+          {
+            "name": {
+              "zh": "航点与连续动作表示探索",
+              "en": "Waypoint and continuous-action representations"
+            },
+            "description": {
+              "zh": "在已有仿真中对比航点设置及连续动作序列，观察动作分段和轨迹形态；目标掩码输入与航点设置作为不同的设计维度记录，保留各自对应的实验条件。",
+              "en": "Existing simulation tests compare waypoint settings and continuous action sequences to examine segmentation and trajectory shape. Target masking and waypoint settings are recorded as separate design choices with their respective experimental conditions."
             }
           }
         ]
@@ -2247,41 +2267,61 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "系统按差分定位、融合估计与循迹控制分层，将定位观测持续转化为车辆控制量。",
-            "en": "The system separates differential positioning, state estimation, and tracking control, continually turning sensor observations into vehicle commands."
+            "zh": "系统由 RTK 差分定位、GNSS–IMU 位姿估计与 MPC 循迹控制组成。固定参考站向车载流动站提供差分信息，流动站结合卫星观测求解位置；九轴 IMU 补充姿态与地磁航向，EKF 平滑位姿后交给 MPC，持续修正车辆相对参考路线的偏离。",
+            "en": "The system combines RTK differential positioning, GNSS–IMU pose estimation and MPC tracking control. A fixed reference station provides corrections to the vehicle rover, which solves its position using satellite observations. A nine-axis IMU supplies orientation and magnetic-heading observations; EKF-smoothed poses feed MPC to continually correct deviation from the reference route."
           }
         ],
         "points": [],
-        "figures": [],
+        "figures": [
+          {
+            "src": "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.webp",
+            "caption": {
+              "zh": "RTK 循迹系统架构：参考站差分定位与九轴 IMU 输入，经 EKF 位姿平滑和 MPC 控制驱动车辆循迹。",
+              "en": "RTK tracking architecture: reference-station corrections and a nine-axis IMU feed EKF pose smoothing and MPC vehicle control."
+            },
+            "layout": "full",
+            "displayWidth": 1040
+          }
+        ],
         "techniques": [
           {
             "name": {
-              "zh": "自建 RTK 基站与流动站",
-              "en": "Local RTK base and rover"
+              "zh": "参考站—流动站 RTK 差分定位",
+              "en": "Reference–rover RTK differential positioning"
             },
             "description": {
-              "zh": "参考站与车载接收机同步观测卫星信号，通过差分信息求解车辆位置，形成校园范围内的绝对定位链路。",
-              "en": "Synchronize satellite observations at a fixed reference station and vehicle receiver, using differential corrections to obtain absolute positions on campus."
+              "zh": "参考站和车载接收端共同观测卫星信号，参考站生成差分信息并传递给流动站，流动站结合观测与差分信息计算车辆位置，形成校园道路上的绝对定位输入。",
+              "en": "The reference and vehicle receivers observe satellite signals. Corrections generated at the reference station are transmitted to the rover and combined with its observations to compute the vehicle position, providing absolute localization on campus roads."
             }
           },
           {
             "name": {
-              "zh": "GNSS–IMU 扩展卡尔曼滤波（EKF）",
-              "en": "GNSS–IMU extended Kalman filtering"
+              "zh": "九轴 IMU 与地磁航向观测",
+              "en": "Nine-axis IMU and magnetic-heading observations"
             },
             "description": {
-              "zh": "以 GNSS 绝对位置约束惯性漂移，以九轴 IMU 补充姿态变化，通过预测与观测更新平滑位姿，减轻位置跳变对控制的影响。",
-              "en": "Constrain inertial drift with GNSS position and use the nine-axis IMU for orientation changes; prediction and measurement updates smooth the pose supplied to control."
+              "zh": "以九轴 IMU 的姿态及地磁航向信息补充 RTK 位置观测，为车辆转弯过程提供方向信息，使融合估计同时包含位置与朝向。",
+              "en": "Orientation and magnetic-heading information from the nine-axis IMU complements RTK position observations, supplying directional information during turns so the fused estimate includes both position and heading."
             }
           },
           {
             "name": {
-              "zh": "MPC 轨迹跟踪",
-              "en": "MPC trajectory tracking"
+              "zh": "扩展卡尔曼滤波（EKF）位姿平滑",
+              "en": "Extended Kalman filtering for pose smoothing"
             },
             "description": {
-              "zh": "把融合位姿与参考轨迹放在同一坐标系中，滚动预测后续运动并优化控制量，在直行与转弯过程中修正横向和朝向偏差。",
-              "en": "Express the estimated pose and reference path in a shared frame, predict future motion over a receding horizon, and optimize controls to correct lateral and heading errors."
+              "zh": "通过状态预测和观测更新融合 GNSS 位置与 IMU 信息，平滑测量波动，减轻位置跳变对控制的影响，并把融合位姿与参考轨迹统一到同一坐标系。",
+              "en": "Prediction and measurement updates fuse GNSS positions with IMU information, smooth measurement variation and reduce the effect of position jumps on control. Fused poses and the reference path are expressed in a shared coordinate frame."
+            }
+          },
+          {
+            "name": {
+              "zh": "MPC 滚动优化与闭环循迹",
+              "en": "Receding-horizon MPC and closed-loop tracking"
+            },
+            "description": {
+              "zh": "根据融合位姿与参考轨迹计算横向、朝向偏差，在预测时域内优化控制量，将控制指令下发到底盘；车辆运动后继续读取定位反馈，滚动更新直道、转弯及坡道上的循迹控制。",
+              "en": "Compute lateral and heading errors from the fused pose and reference path, optimize controls over a prediction horizon and send commands to the base. Updated localization feedback then drives receding-horizon corrections along straight sections, turns and ramps."
             }
           }
         ]
@@ -2460,63 +2500,61 @@ export const projects = [
         },
         "paragraphs": [
           {
-            "zh": "以二维激光和视觉点云融合建立几何导航基础，并探索将视觉语义加入代价地图。",
-            "en": "The system combines 2D LiDAR and visual point clouds for geometric navigation and explores incorporating visual semantics into navigation costs."
+            "zh": "导航框架将 RGB 图像送入深度与语义两条支路：深度估计用于生成投影点云，语义分割用于构建 SemaCost 语义代价。视觉几何和语义代价补充二维激光观测，再结合静态地图进行定位与路径规划，为移动操作平台到达工作位置提供导航输入。语义代价扩展按探索性模块展示。",
+            "en": "RGB images enter two navigation branches: depth estimation produces projected point clouds, while semantic segmentation produces SemaCost semantic costs. Visual geometry and semantic costs complement 2D LiDAR observations; localization against a static map then supports path planning and arrival at manipulation sites. The semantic-cost extension is presented as an exploratory module."
           }
         ],
         "points": [],
-        "figures": [],
-        "flow": [
+        "figures": [
           {
-            "zh": "激光与相机观测",
-            "en": "Laser and camera observations"
-          },
-          {
-            "zh": "点云滤波与投影",
-            "en": "Point-cloud filtering and projection"
-          },
-          {
-            "zh": "几何信息融合",
-            "en": "Geometry fusion"
-          },
-          {
-            "zh": "Cartographer 建图",
-            "en": "Cartographer mapping"
-          },
-          {
-            "zh": "导航代价地图更新",
-            "en": "Navigation costmap updates"
+            "src": "assets/projects/agva/methods/lidar-visual-semantic-navigation.webp",
+            "caption": {
+              "zh": "融合导航方法框架：RGB 深度与语义双分支、投影点云与 SemaCost、二维激光融合，以及静态地图定位和路径规划。",
+              "en": "Fusion-navigation framework: RGB depth and semantic branches, projected point clouds and SemaCost, 2D LiDAR fusion, static-map localization and path planning."
+            },
+            "layout": "full",
+            "displayWidth": 1000
           }
         ],
         "techniques": [
           {
             "name": {
-              "zh": "视觉点云滤波与投影融合",
-              "en": "Visual point-cloud filtering and projection"
+              "zh": "RGB 深度估计与点云投影",
+              "en": "RGB depth estimation and point-cloud projection"
             },
             "description": {
-              "zh": "将相机点云滤波并投影到导航平面，与二维激光扫描融合，补充单一平面扫描难以覆盖的障碍几何。",
-              "en": "Filter and project camera point clouds onto the navigation plane, fusing them with 2D laser scans to complement planar obstacle observations."
+              "zh": "由深度网络估计场景深度并生成 ProjPointCloud，对视觉点云进行滤波和导航平面投影，为不同高度障碍提供几何补充。",
+              "en": "Estimate scene depth with a depth network and generate ProjPointCloud. Filtering and projection onto the navigation plane supply complementary geometry for obstacles at different heights."
             }
           },
           {
             "name": {
-              "zh": "Cartographer 与代价地图",
-              "en": "Cartographer and costmaps"
+              "zh": "语义分割与 SemaCost 代价表达",
+              "en": "Semantic segmentation and SemaCost"
             },
             "description": {
-              "zh": "把融合几何输入用于定位建图，依据地图与实时障碍更新导航代价，连接目标点规划和底盘避障执行。",
-              "en": "Use fused geometry for mapping and localization, update navigation costs from maps and obstacles, and connect goal planning to base-level obstacle avoidance."
+              "zh": "语义网络输出场景类别，将目标区域映射为 SemaCost 代价表达，用于把物体类别信息引入导航。该扩展关注类别与可通行代价的关联，保留语义感知实验与导航实机演示各自的验证范围。",
+              "en": "The semantic network predicts scene classes and maps target regions into SemaCost, introducing category information into navigation costs. This extension explores the link between categories and traversability costs, with semantic-perception experiments and real navigation demonstrations retaining their respective evaluation scope."
             }
           },
           {
             "name": {
-              "zh": "深度估计与语义导航探索",
-              "en": "Depth estimation and semantic-navigation exploration"
+              "zh": "二维激光与视觉几何/代价融合",
+              "en": "2D LiDAR and visual geometry/cost fusion"
             },
             "description": {
-              "zh": "对深度、语义分割及全景分割输出进行对照，研究将物体类别和投影点云映射为导航代价；该部分按探索性工作展示。",
-              "en": "Compare depth, semantic-segmentation, and panoptic-segmentation outputs and explore mapping classes and projected point clouds into navigation costs."
+              "zh": "以二维激光扫描提供稳定的平面障碍观测，结合投影点云与语义代价更新导航环境表达，补充单一激光高度平面难以覆盖的信息。",
+              "en": "Use 2D laser scans for planar obstacle observations and combine projected point clouds and semantic costs in the navigation representation, adding information beyond a single laser-height plane."
+            }
+          },
+          {
+            "name": {
+              "zh": "Cartographer 建图、静态地图定位与路径规划",
+              "en": "Cartographer mapping, static-map localization and planning"
+            },
+            "description": {
+              "zh": "已有平台利用 Cartographer 建图；导航时将实时融合观测与静态地图结合，获得机器人位姿并供路径规划使用，再连接底盘避障执行和工作台接近过程。",
+              "en": "The existing platform uses Cartographer for mapping. During navigation, fused observations and the static map support robot-pose estimation and path planning, which connect to base obstacle avoidance and workbench approach."
             }
           }
         ]

@@ -4983,6 +4983,132 @@ export const media = {
           "height": 953
         }
       ]
+    },
+    "assets/projects/aloha/methods/semantic-masked-act.thumb-320.webp": {
+      "width": 320,
+      "height": 180
+    },
+    "assets/projects/aloha/methods/semantic-masked-act.thumb-480.webp": {
+      "width": 480,
+      "height": 270
+    },
+    "assets/projects/aloha/methods/semantic-masked-act.thumb-640.webp": {
+      "width": 640,
+      "height": 360
+    },
+    "assets/projects/aloha/methods/semantic-masked-act.thumb-960.webp": {
+      "width": 960,
+      "height": 540
+    },
+    "assets/projects/aloha/methods/semantic-masked-act.webp": {
+      "width": 1105,
+      "height": 622,
+      "variants": [
+        {
+          "src": "assets/projects/aloha/methods/semantic-masked-act.thumb-320.webp",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "src": "assets/projects/aloha/methods/semantic-masked-act.thumb-480.webp",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "src": "assets/projects/aloha/methods/semantic-masked-act.thumb-640.webp",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "src": "assets/projects/aloha/methods/semantic-masked-act.thumb-960.webp",
+          "width": 960,
+          "height": 540
+        }
+      ]
+    },
+    "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-320.webp": {
+      "width": 320,
+      "height": 128
+    },
+    "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-480.webp": {
+      "width": 480,
+      "height": 193
+    },
+    "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-640.webp": {
+      "width": 640,
+      "height": 257
+    },
+    "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-960.webp": {
+      "width": 960,
+      "height": 385
+    },
+    "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.webp": {
+      "width": 1600,
+      "height": 642,
+      "variants": [
+        {
+          "src": "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-320.webp",
+          "width": 320,
+          "height": 128
+        },
+        {
+          "src": "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-480.webp",
+          "width": 480,
+          "height": 193
+        },
+        {
+          "src": "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-640.webp",
+          "width": 640,
+          "height": 257
+        },
+        {
+          "src": "assets/projects/rtk-navigation/methods/rtk-ekf-mpc-architecture.thumb-960.webp",
+          "width": 960,
+          "height": 385
+        }
+      ]
+    },
+    "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-320.webp": {
+      "width": 320,
+      "height": 154
+    },
+    "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-480.webp": {
+      "width": 480,
+      "height": 231
+    },
+    "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-640.webp": {
+      "width": 640,
+      "height": 308
+    },
+    "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-960.webp": {
+      "width": 960,
+      "height": 462
+    },
+    "assets/projects/agva/methods/lidar-visual-semantic-navigation.webp": {
+      "width": 1275,
+      "height": 613,
+      "variants": [
+        {
+          "src": "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-320.webp",
+          "width": 320,
+          "height": 154
+        },
+        {
+          "src": "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-480.webp",
+          "width": 480,
+          "height": 231
+        },
+        {
+          "src": "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-640.webp",
+          "width": 640,
+          "height": 308
+        },
+        {
+          "src": "assets/projects/agva/methods/lidar-visual-semantic-navigation.thumb-960.webp",
+          "width": 960,
+          "height": 462
+        }
+      ]
     }
   },
   "videos": {
