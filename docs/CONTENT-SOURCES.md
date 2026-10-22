@@ -157,3 +157,14 @@ Kangaroo首页和室内演示从原片49.7秒开始，到139.7秒结束；室外
 - RTK 说明参考站差分信息、车载流动站、九轴IMU地磁航向、EKF位姿平滑、MPC滚动控制及反馈；未新增厘米级误差或定位精度数字。
 - AGVA 补充Depth Network→ProjPointCloud、Semantic Network→SemaCost、二维激光/代价融合、静态地图定位和路径规划，保留Cartographer已有材料及语义扩展的探索性质；以原方法图替换原简略流程条，未假定图中未标明的网络或规划算法。
 - 原图完整保留，转换为高质量WebP并提供320/480/640/960px响应式缩略图；两仓库同步内容及新图像索引，首页、已有视频、实验和其他项目配置保持。
+
+
+## 极端环境数据集与SLAM重建新项目（2026-10-22）
+
+- 依据本人提供的《自制数据集.pptx》及《智洋SLAM方法框架图及效果图展示(1).docx》，新增extreme-environment-slam，置于主要研发、三维激光惯性导航之后。未推测项目起止日期、完整企业名称、硬件相机型号或个人分工。
+- PPT当前版本统计：28序列、800GB+、6.2km+，约43.6万RGB、14.6万LiDAR帧、288万IMU，RGB/Depth约30Hz、LiDAR约10Hz、IMU约200Hz。Depth未单列帧数，不沿用RGB数量充当Depth计数。
+- 图片映射由PPT第1页实际位置确认：image5/10/1/9为办公楼RGB/Depth/点云/IMU，image4/11/3/7为停车场，image6/12/2/8为商业建筑。展示原图并保留比例，未从点云颜色推测精度。
+- Word分别描述保守VO辅助FAST-LIO和FAST2首级融合/可选Fast3R二阶段增强，页面分节呈现。Fast3R、SAM回环/GNSS保留可选性质；GNSS不是地下采集的保证输入。未将LIO(Reference)估计轨迹当真值，未虚构ATE/RPE或百分比提升。
+- 采集整理流程是围绕材料中同步多模态、跨楼层、时间/外参配置和质量检查的技术组织，未声称已有公开数据下载、语义标注、确定训练划分、独立真值或已完成烟雾粉尘实验。极端环境指定位/感知退化研究目标，当前实采范围明确为办公楼、商业建筑及停车场。
+- 技术调研仅核对方法机理：FAST-LIO https://github.com/hku-mars/FAST_LIO ，ikd-Tree https://github.com/hku-mars/ikd-Tree ，PySLAM https://github.com/luigifreda/pyslam ，Fast3R https://github.com/facebookresearch/fast3r ，地下感知问题背景 https://www.darpa.mil/research/programs/darpa-subterranean-challenge 。网页只保留方法节的官方参考链接，不增加完整“来源”栏目。
+- 原始PPT/DOCX及800GB数据集保持在公开仓库外；网站展示15项原始图片及按需响应式WebP，不新增外部加载资源，不改动既有视频。

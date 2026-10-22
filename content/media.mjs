@@ -5109,6 +5109,546 @@ export const media = {
           "height": 462
         }
       ]
+    },
+    "assets/projects/extreme-environment-slam/corridor-rgb.thumb-320.webp": {
+      "width": 320,
+      "height": 240
+    },
+    "assets/projects/extreme-environment-slam/corridor-rgb.thumb-480.webp": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/projects/extreme-environment-slam/corridor-rgb.webp": {
+      "width": 512,
+      "height": 384,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-rgb.thumb-320.webp",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-rgb.thumb-480.webp",
+          "width": 480,
+          "height": 360
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/corridor-depth.thumb-320.webp": {
+      "width": 320,
+      "height": 178
+    },
+    "assets/projects/extreme-environment-slam/corridor-depth.thumb-480.webp": {
+      "width": 480,
+      "height": 268
+    },
+    "assets/projects/extreme-environment-slam/corridor-depth.thumb-640.webp": {
+      "width": 640,
+      "height": 357
+    },
+    "assets/projects/extreme-environment-slam/corridor-depth.webp": {
+      "width": 807,
+      "height": 450,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-depth.thumb-320.webp",
+          "width": 320,
+          "height": 178
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-depth.thumb-480.webp",
+          "width": 480,
+          "height": 268
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-depth.thumb-640.webp",
+          "width": 640,
+          "height": 357
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/garage-rgb.thumb-320.webp": {
+      "width": 320,
+      "height": 213
+    },
+    "assets/projects/extreme-environment-slam/garage-rgb.thumb-480.webp": {
+      "width": 480,
+      "height": 320
+    },
+    "assets/projects/extreme-environment-slam/garage-rgb.webp": {
+      "width": 600,
+      "height": 400,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-rgb.thumb-320.webp",
+          "width": 320,
+          "height": 213
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-rgb.thumb-480.webp",
+          "width": 480,
+          "height": 320
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/garage-depth.thumb-320.webp": {
+      "width": 320,
+      "height": 178
+    },
+    "assets/projects/extreme-environment-slam/garage-depth.thumb-480.webp": {
+      "width": 480,
+      "height": 268
+    },
+    "assets/projects/extreme-environment-slam/garage-depth.thumb-640.webp": {
+      "width": 640,
+      "height": 357
+    },
+    "assets/projects/extreme-environment-slam/garage-depth.thumb-960.webp": {
+      "width": 960,
+      "height": 535
+    },
+    "assets/projects/extreme-environment-slam/garage-depth.webp": {
+      "width": 1600,
+      "height": 892,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-depth.thumb-320.webp",
+          "width": 320,
+          "height": 178
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-depth.thumb-480.webp",
+          "width": 480,
+          "height": 268
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-depth.thumb-640.webp",
+          "width": 640,
+          "height": 357
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-depth.thumb-960.webp",
+          "width": 960,
+          "height": 535
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/commercial-rgb.thumb-320.webp": {
+      "width": 320,
+      "height": 139
+    },
+    "assets/projects/extreme-environment-slam/commercial-rgb.thumb-480.webp": {
+      "width": 480,
+      "height": 208
+    },
+    "assets/projects/extreme-environment-slam/commercial-rgb.thumb-640.webp": {
+      "width": 640,
+      "height": 278
+    },
+    "assets/projects/extreme-environment-slam/commercial-rgb.webp": {
+      "width": 799,
+      "height": 347,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-rgb.thumb-320.webp",
+          "width": 320,
+          "height": 139
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-rgb.thumb-480.webp",
+          "width": 480,
+          "height": 208
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-rgb.thumb-640.webp",
+          "width": 640,
+          "height": 278
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/commercial-depth.thumb-320.webp": {
+      "width": 320,
+      "height": 160
+    },
+    "assets/projects/extreme-environment-slam/commercial-depth.thumb-480.webp": {
+      "width": 480,
+      "height": 240
+    },
+    "assets/projects/extreme-environment-slam/commercial-depth.thumb-640.webp": {
+      "width": 640,
+      "height": 320
+    },
+    "assets/projects/extreme-environment-slam/commercial-depth.thumb-960.webp": {
+      "width": 960,
+      "height": 480
+    },
+    "assets/projects/extreme-environment-slam/commercial-depth.webp": {
+      "width": 1600,
+      "height": 800,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-depth.thumb-320.webp",
+          "width": 320,
+          "height": 160
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-depth.thumb-480.webp",
+          "width": 480,
+          "height": 240
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-depth.thumb-640.webp",
+          "width": 640,
+          "height": 320
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-depth.thumb-960.webp",
+          "width": 960,
+          "height": 480
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/corridor-map.thumb-320.webp": {
+      "width": 320,
+      "height": 189
+    },
+    "assets/projects/extreme-environment-slam/corridor-map.thumb-480.webp": {
+      "width": 480,
+      "height": 284
+    },
+    "assets/projects/extreme-environment-slam/corridor-map.thumb-640.webp": {
+      "width": 640,
+      "height": 378
+    },
+    "assets/projects/extreme-environment-slam/corridor-map.thumb-960.webp": {
+      "width": 960,
+      "height": 567
+    },
+    "assets/projects/extreme-environment-slam/corridor-map.webp": {
+      "width": 1090,
+      "height": 644,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-map.thumb-320.webp",
+          "width": 320,
+          "height": 189
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-map.thumb-480.webp",
+          "width": 480,
+          "height": 284
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-map.thumb-640.webp",
+          "width": 640,
+          "height": 378
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/corridor-map.thumb-960.webp",
+          "width": 960,
+          "height": 567
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/garage-map.thumb-320.webp": {
+      "width": 320,
+      "height": 194
+    },
+    "assets/projects/extreme-environment-slam/garage-map.thumb-480.webp": {
+      "width": 480,
+      "height": 291
+    },
+    "assets/projects/extreme-environment-slam/garage-map.thumb-640.webp": {
+      "width": 640,
+      "height": 389
+    },
+    "assets/projects/extreme-environment-slam/garage-map.thumb-960.webp": {
+      "width": 960,
+      "height": 583
+    },
+    "assets/projects/extreme-environment-slam/garage-map.webp": {
+      "width": 1532,
+      "height": 930,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-map.thumb-320.webp",
+          "width": 320,
+          "height": 194
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-map.thumb-480.webp",
+          "width": 480,
+          "height": 291
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-map.thumb-640.webp",
+          "width": 640,
+          "height": 389
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-map.thumb-960.webp",
+          "width": 960,
+          "height": 583
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/commercial-map.thumb-320.webp": {
+      "width": 320,
+      "height": 198
+    },
+    "assets/projects/extreme-environment-slam/commercial-map.thumb-480.webp": {
+      "width": 480,
+      "height": 298
+    },
+    "assets/projects/extreme-environment-slam/commercial-map.thumb-640.webp": {
+      "width": 640,
+      "height": 397
+    },
+    "assets/projects/extreme-environment-slam/commercial-map.webp": {
+      "width": 803,
+      "height": 498,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-map.thumb-320.webp",
+          "width": 320,
+          "height": 198
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-map.thumb-480.webp",
+          "width": 480,
+          "height": 298
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-map.thumb-640.webp",
+          "width": 640,
+          "height": 397
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/garage-imu.thumb-320.webp": {
+      "width": 320,
+      "height": 180
+    },
+    "assets/projects/extreme-environment-slam/garage-imu.thumb-480.webp": {
+      "width": 480,
+      "height": 270
+    },
+    "assets/projects/extreme-environment-slam/garage-imu.thumb-640.webp": {
+      "width": 640,
+      "height": 360
+    },
+    "assets/projects/extreme-environment-slam/garage-imu.thumb-960.webp": {
+      "width": 960,
+      "height": 540
+    },
+    "assets/projects/extreme-environment-slam/garage-imu.webp": {
+      "width": 1600,
+      "height": 900,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-imu.thumb-320.webp",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-imu.thumb-480.webp",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-imu.thumb-640.webp",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/garage-imu.thumb-960.webp",
+          "width": 960,
+          "height": 540
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/commercial-imu.thumb-320.webp": {
+      "width": 320,
+      "height": 180
+    },
+    "assets/projects/extreme-environment-slam/commercial-imu.thumb-480.webp": {
+      "width": 480,
+      "height": 270
+    },
+    "assets/projects/extreme-environment-slam/commercial-imu.thumb-640.webp": {
+      "width": 640,
+      "height": 360
+    },
+    "assets/projects/extreme-environment-slam/commercial-imu.thumb-960.webp": {
+      "width": 960,
+      "height": 540
+    },
+    "assets/projects/extreme-environment-slam/commercial-imu.webp": {
+      "width": 1600,
+      "height": 900,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-imu.thumb-320.webp",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-imu.thumb-480.webp",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-imu.thumb-640.webp",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/commercial-imu.thumb-960.webp",
+          "width": 960,
+          "height": 540
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-320.webp": {
+      "width": 320,
+      "height": 180
+    },
+    "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-480.webp": {
+      "width": 480,
+      "height": 270
+    },
+    "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-640.webp": {
+      "width": 640,
+      "height": 360
+    },
+    "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-960.webp": {
+      "width": 960,
+      "height": 540
+    },
+    "assets/projects/extreme-environment-slam/conservative-vo-framework.webp": {
+      "width": 1254,
+      "height": 705,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-320.webp",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-480.webp",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-640.webp",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/conservative-vo-framework.thumb-960.webp",
+          "width": 960,
+          "height": 540
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-320.webp": {
+      "width": 320,
+      "height": 179
+    },
+    "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-480.webp": {
+      "width": 480,
+      "height": 268
+    },
+    "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-640.webp": {
+      "width": 640,
+      "height": 358
+    },
+    "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-960.webp": {
+      "width": 960,
+      "height": 536
+    },
+    "assets/projects/extreme-environment-slam/staged-fusion-framework.webp": {
+      "width": 1269,
+      "height": 709,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-320.webp",
+          "width": 320,
+          "height": 179
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-480.webp",
+          "width": 480,
+          "height": 268
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-640.webp",
+          "width": 640,
+          "height": 358
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/staged-fusion-framework.thumb-960.webp",
+          "width": 960,
+          "height": 536
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/lio-trajectory.thumb-320.webp": {
+      "width": 320,
+      "height": 291
+    },
+    "assets/projects/extreme-environment-slam/lio-trajectory.thumb-480.webp": {
+      "width": 480,
+      "height": 436
+    },
+    "assets/projects/extreme-environment-slam/lio-trajectory.webp": {
+      "width": 500,
+      "height": 454,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/lio-trajectory.thumb-320.webp",
+          "width": 320,
+          "height": 291
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/lio-trajectory.thumb-480.webp",
+          "width": 480,
+          "height": 436
+        }
+      ]
+    },
+    "assets/projects/extreme-environment-slam/fusion-trajectories.thumb-320.webp": {
+      "width": 320,
+      "height": 265
+    },
+    "assets/projects/extreme-environment-slam/fusion-trajectories.thumb-480.webp": {
+      "width": 480,
+      "height": 398
+    },
+    "assets/projects/extreme-environment-slam/fusion-trajectories.thumb-640.webp": {
+      "width": 640,
+      "height": 531
+    },
+    "assets/projects/extreme-environment-slam/fusion-trajectories.webp": {
+      "width": 792,
+      "height": 657,
+      "variants": [
+        {
+          "src": "assets/projects/extreme-environment-slam/fusion-trajectories.thumb-320.webp",
+          "width": 320,
+          "height": 265
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/fusion-trajectories.thumb-480.webp",
+          "width": 480,
+          "height": 398
+        },
+        {
+          "src": "assets/projects/extreme-environment-slam/fusion-trajectories.thumb-640.webp",
+          "width": 640,
+          "height": 531
+        }
+      ]
     }
   },
   "videos": {

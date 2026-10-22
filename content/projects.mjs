@@ -2135,6 +2135,502 @@ export const projects = [
     "group": "primary"
   },
   {
+    "id": "extreme-environment-slam",
+    "title": {
+      "zh": "极端环境自建数据集与多传感器 SLAM 重建",
+      "en": "Self-collected datasets and multi-sensor SLAM for challenging environments"
+    },
+    "summary": {
+      "zh": "面向低光与重复结构定位建图，自建28序列、800GB+多模态数据集，以 FAST-LIO 与视觉辅助重建地下及多楼层空间。",
+      "en": "Collect 28 multimodal sequences (800 GB+) for degraded-perception mapping; FAST-LIO with gated visual assistance reconstructs underground and multi-floor spaces."
+    },
+    "facts": [
+      {
+        "label": {
+          "zh": "合作项目",
+          "en": "Project"
+        },
+        "value": {
+          "zh": "智洋隧道重建",
+          "en": "Zhiyang tunnel reconstruction"
+        }
+      },
+      {
+        "label": {
+          "zh": "采集范围",
+          "en": "Collection scope"
+        },
+        "value": {
+          "zh": "办公楼、四层商业建筑与地下停车场",
+          "en": "Office building, four-storey commercial building and underground parking garage"
+        }
+      },
+      {
+        "label": {
+          "zh": "输入与平台",
+          "en": "Inputs and platform"
+        },
+        "value": {
+          "zh": "RGB / Depth、Livox Mid-360、IMU、ROS 2",
+          "en": "RGB / depth, Livox Mid-360, IMU and ROS 2"
+        }
+      }
+    ],
+    "sections": [
+      {
+        "id": "background",
+        "title": {
+          "zh": "项目背景",
+          "en": "Background"
+        },
+        "paragraphs": [
+          {
+            "zh": "隧道和地下空间通常缺少稳定的 GNSS 定位，长走廊、重复柱网与大面积平面也会削弱几何约束。光照变化、弱纹理和遮挡进一步影响视觉跟踪。项目围绕这类感知退化条件，联合采集视觉、深度、激光和惯性信息，研究连续定位与三维环境重建。",
+            "en": "Tunnels and underground spaces often lack reliable GNSS, while long corridors, repetitive columns and large planar surfaces weaken geometric constraints. Lighting changes, limited texture and occlusion also challenge visual tracking. This project collects visual, depth, LiDAR and inertial observations to study continuous localization and 3D reconstruction under these conditions."
+          },
+          {
+            "zh": "当前自建数据集覆盖办公楼走廊及房间、四层商业建筑和地下停车场，包含不同机器人高度、观察视角与跨楼层连续轨迹。通过真实场景数据回放，将多传感器时序、位姿估计和地图重建放在同一流程中检查。",
+            "en": "The current dataset covers office corridors and rooms, a four-storey commercial building and an underground parking garage, with different robot heights, viewpoints and continuous routes across floors. Replay of real recordings connects checks of sensor timing, pose estimation and map reconstruction."
+          }
+        ]
+      },
+      {
+        "id": "task",
+        "title": {
+          "zh": "任务说明",
+          "en": "Task"
+        },
+        "paragraphs": [
+          {
+            "zh": "采集可用于机器人导航研究的连续多模态序列，保留跨楼层和场景切换过程中的运动与观测变化。重建阶段以激光惯性里程计为主链，在视觉可靠时引入辅助信息，持续输出位姿、轨迹、配准点云与三维地图，并观察弱观测区间中的跟踪连续性。",
+            "en": "Collect continuous multimodal sequences for robot navigation, preserving motion and observation changes across floors and scene transitions. Reconstruction uses LiDAR–inertial odometry as its main estimator, admitting visual assistance when reliable and producing poses, paths, registered clouds and 3D maps while monitoring continuity through weakly observed intervals."
+          }
+        ]
+      },
+      {
+        "id": "equipment",
+        "title": {
+          "zh": "设备与多模态输入",
+          "en": "Sensors and multimodal inputs"
+        },
+        "paragraphs": [
+          {
+            "zh": "数据采集包含 RGB 图像、深度图、三维激光点云与 IMU。重建系统以 Livox Mid-360 和 IMU 为主输入，RGB 单目相机连接 PySLAM 视觉支路，ROS 2 组织传感器消息与模块通信。配置文件统一管理相机内参、LiDAR–IMU / LiDAR–Camera 外参及时间关系。",
+            "en": "Collection includes RGB images, depth maps, 3D LiDAR clouds and IMU measurements. The reconstruction system takes Livox Mid-360 and IMU as its primary inputs, connects monocular RGB to a PySLAM branch and uses ROS 2 for messaging. Configuration files manage camera intrinsics, LiDAR–IMU / LiDAR–camera extrinsics and timing relationships."
+          }
+        ]
+      },
+      {
+        "id": "dataset",
+        "title": {
+          "zh": "数据集采集与整理",
+          "en": "Dataset collection and preparation"
+        },
+        "paragraphs": [
+          {
+            "zh": "采集与整理方法围绕场景覆盖、传感器对应和连续回放展开：用完整轨迹保留进出房间、转弯及跨楼层过程，结合时间与配置检查建立各模态的对应关系，再用图像、点云和惯性曲线检查数据是否适合后续重建。",
+            "en": "The collection and preparation workflow emphasizes scene coverage, sensor correspondence and continuous replay. Complete routes preserve room transitions, turns and floor changes; timing and configuration checks establish cross-sensor correspondence, while images, clouds and inertial plots support reconstruction-readiness checks."
+          }
+        ],
+        "metrics": [
+          {
+            "value": "28",
+            "label": {
+              "zh": "连续采集序列",
+              "en": "Continuous sequences"
+            }
+          },
+          {
+            "value": "800 GB+",
+            "label": {
+              "zh": "多模态数据规模",
+              "en": "Multimodal data"
+            }
+          },
+          {
+            "value": "6.2 km+",
+            "label": {
+              "zh": "累计运动距离",
+              "en": "Total travel distance"
+            }
+          }
+        ],
+        "table": {
+          "caption": {
+            "zh": "当前采集版本的模态与规模（约值）",
+            "en": "Modalities and approximate counts in the current collection"
+          },
+          "columns": [
+            {
+              "zh": "模态",
+              "en": "Modality"
+            },
+            {
+              "zh": "采样频率",
+              "en": "Sampling rate"
+            },
+            {
+              "zh": "记录规模",
+              "en": "Record count"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "zh": "RGB / Depth",
+                "en": "RGB / depth"
+              },
+              "30 Hz",
+              {
+                "zh": "RGB 约43.6万张",
+                "en": "Approx. 436,000 RGB images"
+              }
+            ],
+            [
+              {
+                "zh": "三维激光点云",
+                "en": "3D LiDAR"
+              },
+              "10 Hz",
+              {
+                "zh": "约14.6万帧",
+                "en": "Approx. 146,000 scans"
+              }
+            ],
+            [
+              "IMU",
+              "200 Hz",
+              {
+                "zh": "约288万条",
+                "en": "Approx. 2.88 million records"
+              }
+            ]
+          ]
+        },
+        "techniques": [
+          {
+            "name": {
+              "zh": "连续路线与高度/视角覆盖",
+              "en": "Continuous routes and viewpoint coverage"
+            },
+            "description": {
+              "zh": "以办公楼、商业建筑和地下停车场组织序列，覆盖不同机器人高度与视角，保留跨楼层连续运动，使几何重复、视野变化和转弯过程能够在同一条轨迹中分析。",
+              "en": "Organize sequences by office, commercial-building and garage scenes, spanning robot heights and viewpoints and retaining continuous motion between floors so repetitive geometry, viewpoint changes and turns can be examined within one route."
+            }
+          },
+          {
+            "name": {
+              "zh": "时间对齐与标定配置",
+              "en": "Time alignment and calibration configuration"
+            },
+            "description": {
+              "zh": "依据时间戳建立图像、点云和 IMU 的对应关系，检查帧间隔和时间异常，并使用统一内外参描述传感器坐标关系，为 IMU 去畸变和视觉辅助提供一致输入。",
+              "en": "Associate images, scans and IMU measurements by timestamps, check frame intervals and timing anomalies, and use shared intrinsic/extrinsic configuration to describe sensor frames consistently for IMU deskewing and visual assistance."
+            }
+          },
+          {
+            "name": {
+              "zh": "序列回放与质量检查",
+              "en": "Sequence replay and quality checks"
+            },
+            "description": {
+              "zh": "结合原始图像、深度观测、点云和 IMU 曲线检查采集区间；重建时同步关注视觉匹配、惯性运动和 LIO 质量状态，定位掉帧、跟踪失败及异常运动所在片段。",
+              "en": "Review image, depth, cloud and IMU observations over each recording. During reconstruction, monitor visual matches, inertial motion and LIO quality together to identify intervals with dropped frames, tracking failures or abnormal motion."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/extreme-environment-slam/corridor-rgb.webp",
+            "caption": {
+              "zh": "办公楼走廊及房间：RGB 场景样例。",
+              "en": "Office corridors and rooms: RGB scene sample."
+            },
+            "row": "corridor-inputs",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/corridor-depth.webp",
+            "caption": {
+              "zh": "办公楼走廊：深度观测样例。",
+              "en": "Office corridor: depth-observation sample."
+            },
+            "row": "corridor-inputs",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/garage-rgb.webp",
+            "caption": {
+              "zh": "地下停车场：柱网与通道场景。",
+              "en": "Underground garage: columns and vehicle aisles."
+            },
+            "row": "garage-inputs",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/garage-depth.webp",
+            "caption": {
+              "zh": "地下停车场：深度观测样例。",
+              "en": "Underground garage: depth-observation sample."
+            },
+            "row": "garage-inputs",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/commercial-rgb.webp",
+            "caption": {
+              "zh": "四层商业建筑：采集场景外观。",
+              "en": "Four-storey commercial building: collection site."
+            },
+            "row": "commercial-inputs",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/commercial-depth.webp",
+            "caption": {
+              "zh": "商业建筑：深度观测样例。",
+              "en": "Commercial building: depth-observation sample."
+            },
+            "row": "commercial-inputs",
+            "rowWidth": 960
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "title": {
+          "zh": "激光惯性主链与保守视觉辅助",
+          "en": "LiDAR–inertial backbone and conservative visual assistance"
+        },
+        "paragraphs": [
+          {
+            "zh": "基础链路由 FAST-LIO 负责主定位与增量建图。视觉只在质量检查通过后对预测状态提供保守辅助，不直接替代激光惯性估计或写入地图。该设计将视觉短时失效与主链隔离，使系统可以在观测质量变化时继续维护里程计和地图输出。",
+            "en": "FAST-LIO handles primary localization and incremental mapping. Vision provides conservative assistance to the predicted state only after quality checks, rather than directly replacing the LiDAR–inertial estimate or updating its map. This isolates temporary visual failures from the backbone while it maintains odometry and mapping outputs."
+          }
+        ],
+        "techniques": [
+          {
+            "name": {
+              "zh": "点云预处理与 IMU 去畸变",
+              "en": "Cloud preprocessing and IMU deskewing"
+            },
+            "description": {
+              "zh": "解析逐点时间、剔除盲区并抽稀点云，按时间与 IMU 构成测量包。IMU 用于初始化、连续状态预测和扫描运动补偿，减轻逐点采样期间运动造成的点云畸变。",
+              "en": "Parse per-point timing, remove blind-zone points and downsample clouds, then pair scans with IMU measurements in time. IMU initialization, continuous prediction and scan-motion compensation reduce distortion from motion during acquisition."
+            }
+          },
+          {
+            "name": {
+              "zh": "迭代 ESKF 与 ikd-Tree 增量地图",
+              "en": "Iterated ESKF and incremental ikd-Tree mapping"
+            },
+            "description": {
+              "zh": "在局部地图中进行邻域搜索和点到平面配准，通过迭代误差状态卡尔曼滤波更新位姿及运动状态。ikd-Tree 维护局部点云的增量插入、删除与空间查询，为后续扫描提供配准参考。",
+              "en": "Search neighbors and form point-to-plane residuals against the local map, then update pose and motion state through an iterated error-state Kalman filter. The ikd-Tree supports incremental point insertion, deletion and spatial queries for subsequent scan registration."
+            }
+          },
+          {
+            "name": {
+              "zh": "PySLAM 单目 VO 与观测门控",
+              "en": "PySLAM monocular VO and observation gating"
+            },
+            "description": {
+              "zh": "图像经过编码转换、灰度化及可选去畸变后，选用 ORB2 或 SIFT 特征进行跟踪。利用匹配数、内点数和视差筛选视觉位姿，并据特征质量设置协方差；连续跟踪失败或时间异常时重置视觉前端。",
+              "en": "After image conversion, grayscale processing and optional undistortion, track ORB2 or SIFT features. Match counts, inliers and parallax gate visual poses and inform their covariance; repeated tracking failures or timing anomalies reset the visual frontend."
+            }
+          },
+          {
+            "name": {
+              "zh": "保守修正与异常回退",
+              "en": "Conservative correction and fallback"
+            },
+            "description": {
+              "zh": "视觉辅助先经过时间同步、外参变换、置信度、跳变、方向一致性与抖动检查。质量不足时旁路或暂时禁用视觉；点云异常时启用地图更新保护。可选 SAM 后端可结合回环及 GNSS 约束生成优化轨迹与全局地图。",
+              "en": "Visual assistance passes timing, extrinsic, confidence, jump, direction-consistency and jitter checks. Poor observations are bypassed or temporarily disabled, with map-update protection for abnormal clouds. An optional SAM backend can use loop closures and GNSS constraints for an optimized trajectory and global map."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/extreme-environment-slam/conservative-vo-framework.webp",
+            "caption": {
+              "zh": "基础方法：FAST-LIO 主估计、PySLAM 质量筛选与保守辅助的数据流。",
+              "en": "Base method: FAST-LIO estimation, PySLAM quality screening and conservative visual assistance."
+            },
+            "displayWidth": 1080,
+            "layout": "full"
+          }
+        ],
+        "source": {
+          "url": "https://github.com/hku-mars/FAST_LIO",
+          "label": {
+            "zh": "技术参考：FAST-LIO 官方实现",
+            "en": "Technical reference: official FAST-LIO implementation"
+          }
+        }
+      },
+      {
+        "id": "fusion",
+        "title": {
+          "zh": "分阶段融合与可选增强",
+          "en": "Staged fusion and optional enhancement"
+        },
+        "paragraphs": [
+          {
+            "zh": "另一条试验路线保留 FAST-LIO 与 PySLAM 的独立输出，由 PoseFusion 对齐后进行首级位姿融合。可选 Fast3R 支路在可靠时提供额外视觉观测，再由 lastFusion 完成二阶段融合。它与前述“只保守辅助 LIO 预测”的基础链路分别记录和比较。",
+            "en": "A separate experimental route keeps independent FAST-LIO and PySLAM outputs, aligning them in PoseFusion for first-stage pose fusion. An optional Fast3R branch supplies additional visual observations when reliable, followed by a second fusion stage in lastFusion. This route is recorded separately from conservative assistance to the LIO prediction."
+          }
+        ],
+        "techniques": [
+          {
+            "name": {
+              "zh": "单目尺度恢复与首级 EKF",
+              "en": "Monocular scale recovery and first-stage EKF"
+            },
+            "description": {
+              "zh": "将 LIO 与视觉里程计近似时间同步，根据两段相对运动估计单目尺度；以协方差、残差、跳变和冻结状态筛选观测，利用 EKF 输出连续融合位姿。",
+              "en": "Approximately synchronize LIO and visual odometry, estimate monocular scale from their relative motions, and gate observations using covariance, residuals, jumps and frozen-state checks before EKF pose fusion."
+            }
+          },
+          {
+            "name": {
+              "zh": "Fast3R 多视图几何与 PnP-RANSAC",
+              "en": "Fast3R multi-view geometry and PnP-RANSAC"
+            },
+            "description": {
+              "zh": "可选支路对相邻图像进行多视图深度推理，用 PnP-RANSAC 恢复相对位姿。视觉置信度可靠时才将其作为二阶段辅助观测，低质量或超时则回退首级融合结果。",
+              "en": "The optional branch infers multi-view depth from neighboring images and recovers relative poses with PnP-RANSAC. Reliable observations can assist the second stage; low confidence or timeouts fall back to the first-stage result."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/extreme-environment-slam/staged-fusion-framework.webp",
+            "caption": {
+              "zh": "试验方法：FAST-LIO、PySLAM、PoseFusion 及可选 Fast3R / lastFusion 的分阶段关系。",
+              "en": "Experimental method: FAST-LIO, PySLAM, PoseFusion and optional Fast3R / lastFusion stages."
+            },
+            "displayWidth": 1080,
+            "layout": "full"
+          }
+        ],
+        "source": {
+          "url": "https://github.com/facebookresearch/fast3r",
+          "label": {
+            "zh": "技术参考：Fast3R 官方实现",
+            "en": "Technical reference: official Fast3R implementation"
+          }
+        }
+      },
+      {
+        "id": "demo",
+        "title": {
+          "zh": "重建展示与结果",
+          "en": "Reconstruction examples and results"
+        },
+        "paragraphs": [
+          {
+            "zh": "下面展示自建数据在办公楼、地下停车场与商业建筑中的点云重建结果，可观察房间连接、停车通道及多楼层空间布局。图像来自实际采集与重建记录，各场景与采集样例对应。",
+            "en": "The reconstructions below show office, underground-garage and commercial-building point clouds, including room connectivity, vehicle aisles and spatial layouts across floors. They come from the recorded collection and reconstruction results and correspond to the illustrated scenes."
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/extreme-environment-slam/corridor-map.webp",
+            "caption": {
+              "zh": "办公楼走廊及房间的三维点云重建。",
+              "en": "3D point-cloud reconstruction of office corridors and rooms."
+            },
+            "row": "reconstruction-pair"
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/garage-map.webp",
+            "caption": {
+              "zh": "地下停车场的三维点云重建。",
+              "en": "3D point-cloud reconstruction of the underground garage."
+            },
+            "row": "reconstruction-pair"
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/commercial-map.webp",
+            "caption": {
+              "zh": "商业建筑连续轨迹与空间结构重建。",
+              "en": "Commercial-building trajectory and spatial reconstruction."
+            },
+            "displayWidth": 720,
+            "layout": "full"
+          }
+        ]
+      },
+      {
+        "id": "experiments",
+        "title": {
+          "zh": "轨迹与采集质量检查",
+          "en": "Trajectory and acquisition-quality checks"
+        },
+        "paragraphs": [
+          {
+            "zh": "IMU 曲线用于观察不同场景下的加速度和角速度变化，轨迹图用于检查重建过程是否连续及不同估计输出的相对变化。对比图中的 LIO（Reference）是算法估计参考，不是独立测量真值。当前展示为定性结果，尚未提供基于外部真值的 ATE / RPE 定量精度。",
+            "en": "IMU plots reveal acceleration and angular-velocity changes across scenes, while trajectory plots support continuity checks and comparison of estimator outputs. LIO (Reference) denotes an estimated reference, not independent ground truth. These are qualitative results; ground-truth-based ATE/RPE accuracy is not reported."
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/extreme-environment-slam/lio-trajectory.webp",
+            "caption": {
+              "zh": "单条估计轨迹的三维可视化。",
+              "en": "3D visualization of an estimated trajectory."
+            },
+            "row": "trajectory-pair",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/fusion-trajectories.webp",
+            "caption": {
+              "zh": "LIO、首级融合与二阶段融合的轨迹对照；LIO 为估计参考。",
+              "en": "LIO, first-stage and second-stage trajectories; LIO is an estimated reference."
+            },
+            "row": "trajectory-pair",
+            "rowWidth": 960
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/garage-imu.webp",
+            "caption": {
+              "zh": "地下停车场采集区间的 IMU 加速度与角速度记录。",
+              "en": "Garage IMU acceleration and angular-velocity records."
+            },
+            "row": "imu-pair"
+          },
+          {
+            "src": "assets/projects/extreme-environment-slam/commercial-imu.webp",
+            "caption": {
+              "zh": "多楼层商业建筑采集区间的 IMU 记录。",
+              "en": "IMU records from the multi-floor commercial building."
+            },
+            "row": "imu-pair"
+          }
+        ]
+      }
+    ],
+    "categoryKey": "navigation",
+    "category": {
+      "zh": "数据集与三维重建",
+      "en": "Datasets and 3D reconstruction"
+    },
+    "media": {
+      "image": "assets/projects/extreme-environment-slam/commercial-map.webp",
+      "alt": {
+        "zh": "自建数据集中的商业建筑三维点云与轨迹",
+        "en": "Commercial-building point cloud and trajectory from the self-collected dataset"
+      }
+    },
+    "organization": {
+      "zh": "智洋合作项目",
+      "en": "Zhiyang collaboration"
+    },
+    "group": "primary"
+  },
+  {
     "id": "rtk-navigation",
     "title": {
       "zh": "RTK 校园道路自主循迹",
