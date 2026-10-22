@@ -3011,13 +3011,6 @@ export const projects = [
         "points": [],
         "figures": [
           {
-            "src": "assets/projects/fruit-sorting/ppt/summary-image123.webp",
-            "caption": {
-              "zh": "预研产线现场展示",
-              "en": "On-site pilot-line demonstration"
-            }
-          },
-          {
             "video": "assets/projects/fruit-sorting/demo.mp4",
             "poster": "assets/projects/fruit-sorting/poster.webp",
             "caption": {
