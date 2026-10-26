@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650" role="img" aria-labelledby="title desc">
+<title id="title">TrafficRobot software modules</title><desc id="desc">WPF views and view models connect core algorithms with speech, traffic signals and device services.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0L9 3.5L0 7Z" fill="#333"/></marker></defs>
+<rect width="1280" height="650" fill="white"/>
+<g font-family="Times New Roman,Microsoft YaHei,serif" fill="#111" text-anchor="middle">
+<text x="640" y="38" font-size="27" font-weight="bold">TrafficRobot: algorithms, backend and interaction</text>
+<rect x="35" y="72" width="1210" height="125" rx="5" fill="#f7f7f7" stroke="#333"/>
+<text x="640" y="102" font-size="22" font-weight="bold">WPF Views</text>
+<text x="210" y="155" font-size="21">MainWindow / Home</text><text x="500" y="155" font-size="21">FaceView</text><text x="780" y="155" font-size="21">ChatView</text><text x="1080" y="155" font-size="21">SettingView</text>
+<path d="M640 199V236" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="135" y="240" width="1010" height="98" rx="5" fill="#edf4f4" stroke="#333"/>
+<text x="640" y="276" font-size="24" font-weight="bold">ViewModels and backend orchestration</text>
+<text x="640" y="311" font-size="20">UI state / algorithm results / robot commands / status feedback</text>
+<path d="M640 340V376" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="380" width="1210" height="118" rx="5" fill="#fafafa" stroke="#333"/>
+<text x="640" y="410" font-size="22" font-weight="bold">Core algorithm and service modules</text>
+<text x="230" y="452" font-size="21">Navigation</text><text x="640" y="452" font-size="21">Violation detection / face recognition</text><text x="1050" y="452" font-size="21">Speech / traffic signals</text>
+<text x="230" y="482" font-size="18">Map / localization / goals</text><text x="640" y="482" font-size="18">Vision outputs / capture / display</text><text x="1050" y="482" font-size="18">Iat_record / MyAIUI / light states</text>
+<path d="M640 500V536" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="540" width="1210" height="80" rx="5" fill="#f7f7f7" stroke="#333"/>
+<text x="640" y="572" font-size="22" font-weight="bold">Device and application interfaces</text>
+<text x="640" y="603" font-size="19">Camera / microphone / arms and head / touchscreen / joystick / GPS and battery</text>
+</g></svg>

@@ -5649,6 +5649,259 @@ export const media = {
           "height": 531
         }
       ]
+    },
+    "assets/projects/traffic-police/poster.thumb-320.webp": {
+      "width": 320,
+      "height": 181
+    },
+    "assets/projects/traffic-police/poster.thumb-480.webp": {
+      "width": 480,
+      "height": 272
+    },
+    "assets/projects/traffic-police/poster.thumb-640.webp": {
+      "width": 640,
+      "height": 363
+    },
+    "assets/projects/traffic-police/poster.webp": {
+      "width": 960,
+      "height": 544,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/poster.thumb-320.webp",
+          "width": 320,
+          "height": 181
+        },
+        {
+          "src": "assets/projects/traffic-police/poster.thumb-480.webp",
+          "width": 480,
+          "height": 272
+        },
+        {
+          "src": "assets/projects/traffic-police/poster.thumb-640.webp",
+          "width": 640,
+          "height": 363
+        }
+      ]
+    },
+    "assets/projects/traffic-police/platform.thumb-320.webp": {
+      "width": 320,
+      "height": 181
+    },
+    "assets/projects/traffic-police/platform.thumb-480.webp": {
+      "width": 480,
+      "height": 272
+    },
+    "assets/projects/traffic-police/platform.thumb-640.webp": {
+      "width": 640,
+      "height": 363
+    },
+    "assets/projects/traffic-police/platform.webp": {
+      "width": 960,
+      "height": 544,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/platform.thumb-320.webp",
+          "width": 320,
+          "height": 181
+        },
+        {
+          "src": "assets/projects/traffic-police/platform.thumb-480.webp",
+          "width": 480,
+          "height": 272
+        },
+        {
+          "src": "assets/projects/traffic-police/platform.thumb-640.webp",
+          "width": 640,
+          "height": 363
+        }
+      ]
+    },
+    "assets/projects/traffic-police/service-home.thumb-320.webp": {
+      "width": 320,
+      "height": 569
+    },
+    "assets/projects/traffic-police/service-home.thumb-480.webp": {
+      "width": 480,
+      "height": 853
+    },
+    "assets/projects/traffic-police/service-home.thumb-640.webp": {
+      "width": 640,
+      "height": 1138
+    },
+    "assets/projects/traffic-police/service-home.webp": {
+      "width": 900,
+      "height": 1600,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/service-home.thumb-320.webp",
+          "width": 320,
+          "height": 569
+        },
+        {
+          "src": "assets/projects/traffic-police/service-home.thumb-480.webp",
+          "width": 480,
+          "height": 853
+        },
+        {
+          "src": "assets/projects/traffic-police/service-home.thumb-640.webp",
+          "width": 640,
+          "height": 1138
+        }
+      ]
+    },
+    "assets/projects/traffic-police/service-dialogue.thumb-320.webp": {
+      "width": 320,
+      "height": 569
+    },
+    "assets/projects/traffic-police/service-dialogue.thumb-480.webp": {
+      "width": 480,
+      "height": 853
+    },
+    "assets/projects/traffic-police/service-dialogue.thumb-640.webp": {
+      "width": 640,
+      "height": 1138
+    },
+    "assets/projects/traffic-police/service-dialogue.webp": {
+      "width": 900,
+      "height": 1600,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/service-dialogue.thumb-320.webp",
+          "width": 320,
+          "height": 569
+        },
+        {
+          "src": "assets/projects/traffic-police/service-dialogue.thumb-480.webp",
+          "width": 480,
+          "height": 853
+        },
+        {
+          "src": "assets/projects/traffic-police/service-dialogue.thumb-640.webp",
+          "width": 640,
+          "height": 1138
+        }
+      ]
+    },
+    "assets/projects/traffic-police/navigation-hardware.thumb-320.webp": {
+      "width": 320,
+      "height": 167
+    },
+    "assets/projects/traffic-police/navigation-hardware.thumb-480.webp": {
+      "width": 480,
+      "height": 251
+    },
+    "assets/projects/traffic-police/navigation-hardware.thumb-640.webp": {
+      "width": 640,
+      "height": 335
+    },
+    "assets/projects/traffic-police/navigation-hardware.thumb-960.webp": {
+      "width": 960,
+      "height": 502
+    },
+    "assets/projects/traffic-police/navigation-hardware.webp": {
+      "width": 1457,
+      "height": 762,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/navigation-hardware.thumb-320.webp",
+          "width": 320,
+          "height": 167
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-hardware.thumb-480.webp",
+          "width": 480,
+          "height": 251
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-hardware.thumb-640.webp",
+          "width": 640,
+          "height": 335
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-hardware.thumb-960.webp",
+          "width": 960,
+          "height": 502
+        }
+      ]
+    },
+    "assets/projects/traffic-police/navigation-software.thumb-320.webp": {
+      "width": 320,
+      "height": 171
+    },
+    "assets/projects/traffic-police/navigation-software.thumb-480.webp": {
+      "width": 480,
+      "height": 256
+    },
+    "assets/projects/traffic-police/navigation-software.thumb-640.webp": {
+      "width": 640,
+      "height": 341
+    },
+    "assets/projects/traffic-police/navigation-software.thumb-960.webp": {
+      "width": 960,
+      "height": 512
+    },
+    "assets/projects/traffic-police/navigation-software.webp": {
+      "width": 1404,
+      "height": 749,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/navigation-software.thumb-320.webp",
+          "width": 320,
+          "height": 171
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-software.thumb-480.webp",
+          "width": 480,
+          "height": 256
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-software.thumb-640.webp",
+          "width": 640,
+          "height": 341
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-software.thumb-960.webp",
+          "width": 960,
+          "height": 512
+        }
+      ]
+    },
+    "assets/projects/traffic-police/navigation-gui.thumb-320.webp": {
+      "width": 320,
+      "height": 217
+    },
+    "assets/projects/traffic-police/navigation-gui.thumb-480.webp": {
+      "width": 480,
+      "height": 326
+    },
+    "assets/projects/traffic-police/navigation-gui.thumb-640.webp": {
+      "width": 640,
+      "height": 434
+    },
+    "assets/projects/traffic-police/navigation-gui.webp": {
+      "width": 765,
+      "height": 519,
+      "variants": [
+        {
+          "src": "assets/projects/traffic-police/navigation-gui.thumb-320.webp",
+          "width": 320,
+          "height": 217
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-gui.thumb-480.webp",
+          "width": 480,
+          "height": 326
+        },
+        {
+          "src": "assets/projects/traffic-police/navigation-gui.thumb-640.webp",
+          "width": 640,
+          "height": 434
+        }
+      ]
+    },
+    "assets/projects/traffic-police/software-architecture.svg": {
+      "width": 1280,
+      "height": 650
     }
   },
   "videos": {
@@ -6170,6 +6423,19 @@ export const media = {
       "width": 640,
       "height": 254,
       "bytes": 35612
+    },
+    "assets/projects/traffic-police/demo.mp4": {
+      "duration": 55.966,
+      "width": 960,
+      "height": 544,
+      "bytes": 8113975,
+      "preview": "assets/projects/traffic-police/demo.preview.mp4"
+    },
+    "assets/projects/traffic-police/demo.preview.mp4": {
+      "duration": 8,
+      "width": 480,
+      "height": 272,
+      "bytes": 195336
     }
   }
 };

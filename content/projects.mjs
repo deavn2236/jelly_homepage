@@ -2894,6 +2894,319 @@ export const projects = [
     "group": "primary"
   },
   {
+    "id": "traffic-police",
+    "title": {
+      "zh": "交通协警机器人核心算法与系统开发",
+      "en": "Core algorithms and system development for a traffic-assistance robot"
+    },
+    "summary": {
+      "zh": "面向路口交通服务，开发导航、违法检测与人脸识别后端，联动信号灯及语音交互；实机展示指挥提醒、问询与遥控移动。",
+      "en": "Navigation, violation detection and face-recognition backends support intersection services; product footage shows signal-linked gestures, speech queries and remote movement."
+    },
+    "facts": [
+      {
+        "label": {
+          "zh": "本人职责",
+          "en": "Role"
+        },
+        "value": {
+          "zh": "核心算法开发者：导航、违法检测、人脸识别及后端设计",
+          "en": "Core algorithm developer: navigation, violation detection, face recognition and backend design"
+        }
+      },
+      {
+        "label": {
+          "zh": "应用场景",
+          "en": "Application"
+        },
+        "value": {
+          "zh": "城市路口交通疏导与公众服务",
+          "en": "Urban intersection assistance and public services"
+        }
+      },
+      {
+        "label": {
+          "zh": "系统组成",
+          "en": "System"
+        },
+        "value": {
+          "zh": "轮式平台、双臂与头部、视觉/语音模块、显示屏及业务接口",
+          "en": "Wheeled platform, arms and head, vision/speech, touchscreen and service interfaces"
+        }
+      }
+    ],
+    "sections": [
+      {
+        "id": "background",
+        "title": {
+          "zh": "项目背景",
+          "en": "Background"
+        },
+        "paragraphs": [
+          {
+            "zh": "城市路口需要持续提供通行指引、交通提醒和便民问询，单一信息终端难以同时完成动作指挥、现场感知和交互服务。交通协警机器人以交警外形的移动平台承载多种功能，通过信号灯、机械动作、语音和显示界面的协同，辅助路口秩序维护与公众服务。",
+            "en": "Intersections require traffic guidance, reminders and public information. A traffic-assistance robot combines a mobile platform with signal-linked gestures, scene perception, speech and a touchscreen to support intersection management and public services."
+          }
+        ]
+      },
+      {
+        "id": "task",
+        "title": {
+          "zh": "任务与本人工作",
+          "en": "Tasks and personal contribution"
+        },
+        "paragraphs": [
+          {
+            "zh": "本人负责导航、违法检测、人脸识别等核心算法设计与后端开发，将环境感知、目标与身份识别结果连接到机器人业务逻辑。项目整体还包含信号灯联动指挥、语音问询、抓拍曝光、交通业务查询和移动/状态管理。",
+            "en": "My responsibilities covered core algorithms and backend development for navigation, violation detection and face recognition, connecting perception and identity results to robot services. The overall product also includes signal-linked gestures, speech queries, capture/display workflows, traffic-service access, movement and state management."
+          }
+        ],
+        "points": [
+          {
+            "zh": "交通指挥：无线接入信号灯状态，协调举牌、摆臂、头部动作及语音提示。",
+            "en": "Traffic guidance: receive signal states wirelessly and coordinate signs, arms, head motion and speech."
+          },
+          {
+            "zh": "感知与业务：支持电动车及头盔相关抓拍、人脸识别、违法提醒和曝光展示。",
+            "en": "Perception and services: support two-wheeler/helmet-related capture, face recognition, reminders and display."
+          },
+          {
+            "zh": "导航与控制：开展地图定位、目标点导航及后端接口设计，结合遥控、急停和状态反馈组织执行。",
+            "en": "Navigation and control: develop map localization, goal navigation and backend interfaces alongside remote control, emergency stop and state feedback."
+          }
+        ]
+      },
+      {
+        "id": "equipment",
+        "title": {
+          "zh": "设备说明",
+          "en": "Robot hardware"
+        },
+        "paragraphs": [
+          {
+            "zh": "实机由轮式移动底盘、可动作双臂与头部、摄像头、麦克风/扬声器、胸前触摸屏和身份证读卡器组成，并配置无线信号接收、GPS、电池和手柄控制等模块。路口信号采集端将灯态发送到机器人，机器人据此组织动作与播报。",
+            "en": "The robot combines a wheeled base, moving arms and head, camera, microphone/speaker, chest touchscreen and ID-card reader, with wireless signal reception, GPS, battery and handheld control modules. A roadside receiver/transmitter link supplies traffic-light states for coordinated actions and speech."
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/traffic-police/platform.webp",
+            "caption": {
+              "zh": "产品演示素材中的交通协警机器人实机。",
+              "en": "Traffic-assistance robot shown in the product demonstration."
+            },
+            "role": "main",
+            "displayWidth": 520
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "title": {
+          "zh": "系统和关键技术",
+          "en": "System and key technologies"
+        },
+        "paragraphs": [
+          {
+            "zh": "系统将算法与后端服务、交互界面及机器人执行模块连接起来。软件模块文档采用 WPF 与 View / ViewModel / Model 分层结构，分别承载主界面、表情、智能对话、设置及状态管理；导航、视觉识别和信号灯业务通过后端逻辑完成协同。",
+            "en": "The system connects algorithms and backend services with the user interface and robot execution modules. The module documentation describes WPF with View / ViewModel / Model layers for the home screen, expressions, dialogue, settings and state management, coordinated with navigation, vision and signal-handling services."
+          }
+        ],
+        "techniques": [
+          {
+            "name": {
+              "zh": "导航、违法检测与人脸识别后端",
+              "en": "Navigation, violation detection and face-recognition backend"
+            },
+            "description": {
+              "zh": "围绕定位导航、违法检测和人脸识别开展核心算法设计与后端开发，将算法输出组织为机器人服务可使用的结果，并衔接抓拍记录、提醒和曝光展示。",
+              "en": "Develop the core navigation, violation-detection and face-recognition algorithms and backend, exposing results to robot services and connecting them to capture records, reminders and display."
+            }
+          },
+          {
+            "name": {
+              "zh": "信号灯读取与动作联动",
+              "en": "Traffic-light reception and coordinated actions"
+            },
+            "description": {
+              "zh": "从路口信号读取模块无线接收灯态，控制手臂举牌/放下、头部转动并触发对应语音提示。操作手册记录红灯抬起、绿灯放下的联动方式，并提供手臂切换和停用设置。",
+              "en": "Receive traffic-light states from a roadside module, drive sign raising/lowering and head motion, and trigger speech prompts. The operating guide records red-light raising and green-light lowering, with arm switching and disabling controls."
+            }
+          },
+          {
+            "name": {
+              "zh": "视觉检测模块与识别结果集成",
+              "en": "Visual detection and recognition integration"
+            },
+            "description": {
+              "zh": "接入合作方提供的 YOLOv3 电动车检测模块，结合头盔抓拍、人脸识别和信号灯状态，由后端组织抓拍记录、识别结果、违法提醒与曝光展示。",
+              "en": "Integrate the partner-provided YOLOv3 two-wheeler detector with helmet capture, face recognition and traffic-light states, organizing capture records, recognition results, reminders and display in the backend."
+            }
+          },
+          {
+            "name": {
+              "zh": "科大讯飞语音与智能问答",
+              "en": "iFLYTEK speech and question answering"
+            },
+            "description": {
+              "zh": "接入 Iat_record 语音模块和 MyAIUI 智能问答，通过语音唤醒、识别、回答与屏幕展示，为法规、车驾管业务、周边地点及路线提供问询入口。",
+              "en": "Integrate Iat_record speech and MyAIUI question answering for wake-up, recognition, response and on-screen answers to traffic-service and local-route queries."
+            }
+          },
+          {
+            "name": {
+              "zh": "状态监测与移动控制",
+              "en": "State monitoring and movement control"
+            },
+            "description": {
+              "zh": "整合电量、网络和 GPS 状态，连接防盗告警、手柄遥控及急停控制；设置界面提供手臂停用和关机等功能，支持值守和现场维护。",
+              "en": "Integrate battery, network and GPS status with theft alerts, handheld movement and emergency stop. Settings include arm disabling and shutdown for operation and maintenance."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/traffic-police/software-architecture.svg",
+            "caption": {
+              "zh": "依据模块文档整理的软件架构：交互层、状态与命令层、核心算法和设备服务。",
+              "en": "Software architecture organized from the module document: UI, state/command handling, core algorithms and device services."
+            },
+            "layout": "full",
+            "displayWidth": 1040
+          }
+        ]
+      },
+      {
+        "id": "navigation",
+        "title": {
+          "zh": "定位导航与后端对接",
+          "en": "Localization, navigation and backend interfaces"
+        },
+        "paragraphs": [
+          {
+            "zh": "导航算法与后端设计结合配套定位导航套件资料展开：利用激光测距与里程计建立二维概率栅格地图，通过实时激光与地图匹配获得位姿，结合目标点进行路径规划与移动控制。下方图像为配套导航套件的架构与界面参考。",
+            "en": "Navigation algorithm and backend design draws on the supplied localization toolkit: laser observations and odometry build a 2D occupancy grid, scan-to-map matching estimates pose, and configured goals support path planning and movement control. The figures below are architecture/interface references from that toolkit."
+          }
+        ],
+        "techniques": [
+          {
+            "name": {
+              "zh": "地图坐标与目标点管理",
+              "en": "Map coordinates and goals"
+            },
+            "description": {
+              "zh": "统一机器人坐标、激光地图和业务地图之间的对应关系，配置地图分辨率、激光外参、起始位姿与目标点，维护导航控制所需的位置和朝向信息。",
+              "en": "Align robot, laser-map and service-map coordinates, configure resolution, laser extrinsics, initial pose and goals, and maintain position/orientation information for navigation."
+            }
+          },
+          {
+            "name": {
+              "zh": "TCP/IP 与 Protobuf 接口",
+              "en": "TCP/IP and Protobuf interfaces"
+            },
+            "description": {
+              "zh": "通过 dataserver 将定位、导航状态与业务软件连接，使用 TCP/IP socket 和 Google Protobuf 组织状态消息、初始位姿及目标指令，使算法服务与机器人主程序解耦。",
+              "en": "Connect localization/navigation states to the application through dataserver, using TCP/IP sockets and Google Protobuf for status, initial-pose and goal messages."
+            }
+          }
+        ],
+        "figures": [
+          {
+            "src": "assets/projects/traffic-police/navigation-hardware.webp",
+            "caption": {
+              "zh": "配套定位导航套件的硬件与通信架构。",
+              "en": "Hardware and communication architecture of the supplied navigation toolkit."
+            },
+            "row": "navigation-architecture"
+          },
+          {
+            "src": "assets/projects/traffic-police/navigation-software.webp",
+            "caption": {
+              "zh": "配套定位导航套件的建图与定位程序关系。",
+              "en": "Mapping and localization programs in the navigation toolkit."
+            },
+            "row": "navigation-architecture"
+          },
+          {
+            "src": "assets/projects/traffic-police/navigation-gui.webp",
+            "caption": {
+              "zh": "配套导航套件的地图、激光与目标点配置界面。",
+              "en": "Navigation toolkit map, laser and goal-setting interface."
+            },
+            "displayWidth": 640,
+            "layout": "full"
+          }
+        ]
+      },
+      {
+        "id": "demo",
+        "title": {
+          "zh": "演示与结果",
+          "en": "Demonstrations and results"
+        },
+        "paragraphs": [
+          {
+            "zh": "产品演示素材展示了真实路口的指挥动作、公众互动及移动过程，操作手册展示了问询、交通业务入口与手臂设置界面。以下内容用于呈现整机功能与交互流程，现有材料未提供违法检测、人脸识别或导航精度的量化对照数据。",
+            "en": "Product footage shows intersection gestures, public interaction and movement, while the operating guide illustrates queries, traffic-service access and arm settings. These materials demonstrate product functionality and interaction; quantitative detection, recognition or navigation comparisons are not supplied."
+          }
+        ],
+        "figures": [
+          {
+            "video": "assets/projects/traffic-police/demo.mp4",
+            "poster": "assets/projects/traffic-police/poster.webp",
+            "caption": {
+              "zh": "交通指挥、公众问询及移动功能的产品实机演示（静音自动播放）。",
+              "en": "Product demonstration of traffic guidance, public queries and movement (muted autoplay)."
+            },
+            "layout": "full"
+          },
+          {
+            "src": "assets/projects/traffic-police/service-home.webp",
+            "caption": {
+              "zh": "公众问询与交通业务入口界面。",
+              "en": "Public-query and traffic-service home screen."
+            },
+            "row": "service-ui",
+            "rowWidth": 760
+          },
+          {
+            "src": "assets/projects/traffic-police/service-dialogue.webp",
+            "caption": {
+              "zh": "语音对话与公众路线问询界面。",
+              "en": "Speech dialogue and public-route query interface."
+            },
+            "row": "service-ui",
+            "rowWidth": 760
+          }
+        ],
+        "points": [
+          {
+            "zh": "后续扩展方向：宣传资料列出自主巡航、自动回充与一键报警等规划；这些功能与当前展示的导航模块、遥控移动分别说明。",
+            "en": "Planned extensions in the brochure include autonomous patrol, docking recharge and one-touch alarms, distinguished from the navigation modules and remote movement shown here."
+          }
+        ]
+      }
+    ],
+    "categoryKey": "navigation",
+    "category": {
+      "zh": "智能交通与机器人算法",
+      "en": "Intelligent traffic and robot algorithms"
+    },
+    "media": {
+      "video": "assets/projects/traffic-police/demo.mp4",
+      "poster": "assets/projects/traffic-police/poster.webp",
+      "alt": {
+        "zh": "交通协警机器人在路口进行交通提醒的产品演示",
+        "en": "Traffic-assistance robot at an urban intersection"
+      }
+    },
+    "period": {
+      "zh": "2022.04—2022.06",
+      "en": "Apr–Jun 2022"
+    },
+    "group": "primary"
+  },
+  {
     "id": "agva",
     "title": {
       "zh": "基于半人型机器人的激光雷达与视觉融合导航操作系统",
